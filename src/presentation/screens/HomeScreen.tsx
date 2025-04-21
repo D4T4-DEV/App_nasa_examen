@@ -16,6 +16,9 @@ const HomeScreen = ({ navigation }: PropsRoute) => {
             <Button mode='contained-tonal' onPress={() => navigation.navigate('APOD')}>
                 Ir a la imagen del día (APOD)
             </Button>
+            <Button mode='contained-tonal' onPress={() => navigation.navigate('EPIC')}>
+                Explorar (EPIC)
+            </Button>
         </View>
     )
 }
