@@ -31,7 +31,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   extra: {
     apiConfig: {
       API_KEY_NASA: process.env.API_KEY_NASA,
-      BASE_API_URL_NASA: process.env.BASE_API_URL_NASA
+      BASE_API_URL_NASA: process.env.BASE_API_URL_NASA,
+      TIMEOUT_API: process.env.TIMEOUT_API
     }
   }
 });
