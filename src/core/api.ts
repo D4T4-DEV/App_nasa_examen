@@ -18,5 +18,5 @@ if (!BASE_API_URL_NASA || !API_KEY_NASA || !TIMEOUT_API) {
 export const Api_Configuration = {
     BASE_URL: BASE_API_URL_NASA,
     API_KEY: API_KEY_NASA,
-    TIMEOUT: TIMEOUT_API,
+    TIMEOUT: parseInt(TIMEOUT_API, 10),
 }
