@@ -1,5 +1,5 @@
-import { Api_Configuration } from "@/core/api";
 import axios from "axios";
+import { Api_Configuration } from "@/core/api";
 import { ApodNasaModel } from "../models/ApodNasa";
 
 const { BASE_URL, API_KEY, TIMEOUT } = Api_Configuration;

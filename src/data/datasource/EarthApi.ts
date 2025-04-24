@@ -1,6 +1,5 @@
-import { Api_Configuration } from "@/core/api";
-import { Earth } from "@/domain/entities/Earth";
 import axios from "axios";
+import { Api_Configuration } from "@/core/api";
 import { EarthNasaModel } from "../models/EarthNasa";
 
 const { BASE_URL, API_KEY, TIMEOUT } = Api_Configuration;
