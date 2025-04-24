@@ -1,5 +1,10 @@
 export class DataFormatter {
 
+    /**
+     * Función para formatear una fecha al estándar de fecha usado en USA 'YYYY-MM-DD'
+     * @param date Objeto Date de JavaScript
+     * @returns string con la fecha formateada
+     */
     formatteDateToUSA(date: Date): string {
 
         // Obtiene el año completo ej. 2022
