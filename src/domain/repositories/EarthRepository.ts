@@ -1,4 +1,4 @@
-import { Earth } from "../entities/Eath";
+import { Earth } from "../entities/Earth";
 
 export interface EarthRepository {
     fechtDataEarth(latitude: number, longitude: number, date: Date): Promise<Earth>

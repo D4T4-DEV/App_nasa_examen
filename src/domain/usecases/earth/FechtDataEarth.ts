@@ -1,4 +1,4 @@
-import { Earth } from "@/domain/entities/Eath";
+import { Earth } from "@/domain/entities/Earth";
 import { EarthRepository } from "@/domain/repositories/EarthRepository";
 
 export class FechtDataEarth {
