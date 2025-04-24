@@ -1,6 +1,6 @@
 export interface Epic {
     id: string;
-    date: Date;
+    date: string;
     caption: string;
     imageName: string;
     earthCoordinates: LatLon;

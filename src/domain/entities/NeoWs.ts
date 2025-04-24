@@ -15,7 +15,7 @@ interface Diameter {
 }
 
 interface CloseApproachData {
-    date: Date;
+    date: string;
     relativeVelocityKps: number;
     missDistanceKm: number;
 }
