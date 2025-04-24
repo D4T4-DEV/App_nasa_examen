@@ -3,6 +3,6 @@ export interface Rover {
     sol: number;
     cameraName: string;
     nameRover: string;
-    photoDateEarth: Date;
+    photoDateEarth: string;
     imageUrl: string;
 }
