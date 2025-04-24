@@ -14,8 +14,6 @@ export class ApodApi {
             }
         );
 
-        // const rawData = res.data;
-
         return res.data;
     }
 
