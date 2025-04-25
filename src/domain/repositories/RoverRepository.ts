@@ -1,6 +1,8 @@
 import { Rover } from "../entities/Rover";
 
 export interface RoverRepository {
-    fechtDataRover(sunValue: number, page: number): Promise<Rover[]>;
-    fechtDataRoverOffLine(): Promise<Rover[]>;
+    fetchDataRover(sunValue: number, page: number): Promise<Rover[]>;
+    fetchDataRoverOffLine(): Promise<Rover[] | null>;
+    saveData(rover: Rover): Promise<void>;
+    deleteData(): Promise<void>;
 }

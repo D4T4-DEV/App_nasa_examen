@@ -1,7 +1,9 @@
 import { NeoWs } from "../entities/NeoWs";
 
 export interface NeoWsRepository {
-    fechtDataNeoWs(page: number): Promise<NeoWs[]>;
-    fechtDataNeoWsOffLine(): Promise<NeoWs[]>;
-    fechtDataForIdNeoWs(id: string): Promise<NeoWs>;
+    fetchDataNeoWs(page: number): Promise<NeoWs[]>;
+    fetchDataForIdNeoWs(id: string): Promise<NeoWs>;
+    fetchDataNeoWsOffLine(): Promise<NeoWs[] | null>;
+    saveData(neows: NeoWs): Promise<void>;
+    deleteData(): Promise<void>;
 }

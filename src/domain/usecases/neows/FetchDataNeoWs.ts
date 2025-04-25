@@ -1,10 +1,10 @@
 import { NeoWs } from "@/domain/entities/NeoWs";
 import { NeoWsRepository } from "@/domain/repositories/NeoWsRepository";
 
-export class FechtDataForIdNeoWs {
+export class FetchDataNeoWs {
     constructor(private readonly neowsRepository: NeoWsRepository) { }
 
-    async execute(id: string): Promise<NeoWs> {
-        return this.neowsRepository.fechtDataForIdNeoWs(id);
+    async execute(page: number): Promise<NeoWs[]> {
+        return this.neowsRepository.fetchDataNeoWs(page);
     }
 }

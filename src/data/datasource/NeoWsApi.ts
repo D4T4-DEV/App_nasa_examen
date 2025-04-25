@@ -6,7 +6,7 @@ import { NeoWsNasaModel } from "../models/NeoWsNasa";
 const { BASE_URL, API_KEY, TIMEOUT } = Api_Configuration;
 
 export class NeoWsApi {
-    async fechtDataNeoWs(page: number, size: number = 20): Promise<NeoWsNasaModel[]> {
+    async fetchDataNeoWs(page: number, size: number = 20): Promise<NeoWsNasaModel[]> {
         const res = await axios.get(
             `${BASE_URL}/neo/rest/v1/neo/browse?page=${page}&size=${size}&api_key=${API_KEY}`,
             {
@@ -17,7 +17,7 @@ export class NeoWsApi {
         return res.data;
     }
 
-    async fechtDataForIdNeoWs(id: string): Promise<NeoWsNasaModel> {
+    async fetchDataForIdNeoWs(id: string): Promise<NeoWsNasaModel> {
         const res = await axios.get(
             `${BASE_URL}/neo/rest/v1/neo/${id}?api_key=${API_KEY}`,
             {
