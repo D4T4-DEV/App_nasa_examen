@@ -33,6 +33,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       API_KEY_NASA: process.env.API_KEY_NASA,
       BASE_API_URL_NASA: process.env.BASE_API_URL_NASA,
       TIMEOUT_API: process.env.TIMEOUT_API
+    },
+    keyStorages: {
+      APOD_STORAGE_KEY: process.env.APOD_STORAGE_KEY,
+      EARTH_STORAGE_KEY: process.env.EARTH_STORAGE_KEY,
+      EPIC_STORAGE_KEY: process.env.EPIC_STORAGE_KEY,
+      NEOWS_STORAGE_KEY: process.env.NEOWS_STORAGE_KEY,
+      ROVER_STORAGE_KEY: process.env.ROVER_STORAGE_KEY
     }
   }
 });
