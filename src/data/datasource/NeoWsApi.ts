@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Api_Configuration } from "@/core/api";
-import { NeoWsNasaModel } from "../models/NeoWsNasa";
+import { NearEarthObject, NeoWsNasaModel } from "../models/NeoWsNasa";
 
 
 const { BASE_URL, API_KEY, TIMEOUT } = Api_Configuration;
@@ -17,7 +17,7 @@ export class NeoWsApi {
         return res.data;
     }
 
-    async fetchDataForIdNeoWs(id: string): Promise<NeoWsNasaModel> {
+    async fetchDataForIdNeoWs(id: string): Promise<NearEarthObject> {
         const res = await axios.get(
             `${BASE_URL}/neo/rest/v1/neo/${id}?api_key=${API_KEY}`,
             {
