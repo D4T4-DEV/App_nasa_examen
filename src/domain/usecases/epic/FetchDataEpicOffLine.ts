@@ -1,10 +1,10 @@
 import { Epic } from "@/domain/entities/Epic";
 import { EpicRepository } from "@/domain/repositories/EpicRepository";
 
-export class FechtDataEpicOffLine {
+export class FetchDataEpicOffLine {
     constructor(private readonly epicRepository: EpicRepository) { }
 
     async execute(): Promise<Epic> {
-        return this.epicRepository.fechtDataEpicOffLine();
+        return this.epicRepository.fetchDataEpicOffLine();
     }
 }

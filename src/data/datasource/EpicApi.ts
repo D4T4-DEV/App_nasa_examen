@@ -10,7 +10,7 @@ export class EarthApi {
      * Funcion para hacer una peticion a la api EPIC
      * @returns EpicNasaModel[]
      */
-    async fechtDataEpic(): Promise<EpicNasaModel[]> {
+    async fetchDataEpic(): Promise<EpicNasaModel[]> {
         const res = await axios.get(
             `${BASE_URL}/EPIC/api/natural?api_key=${API_KEY}`,
             {
@@ -25,7 +25,7 @@ export class EarthApi {
      * @param formattedDate - Fecha en formato YYYY-MM-DD
      * @returns EpicNasaModel[]
      */
-    async fechtDataOtherDateEpic(formattedDate: string): Promise<EpicNasaModel[]> {
+    async fetchDataOtherDateEpic(formattedDate: string): Promise<EpicNasaModel[]> {
         const res = await axios.get(
             `${BASE_URL}/EPIC/api/natural/date/${formattedDate}?api_key=${API_KEY}`,
             {
