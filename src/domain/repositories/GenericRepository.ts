@@ -2,7 +2,7 @@
 
 // Repositorio para guardar datos
 export interface SavableRepository<T> {
-    saveData(data: T): Promise<void>;
+    saveData(data: T | T[]): Promise<void>;
 }
 
 // Repositorio para borrar datos
