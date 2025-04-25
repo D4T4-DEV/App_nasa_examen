@@ -4,7 +4,7 @@ import { EpicNasaModel } from "../models/EpicNasa";
 
 const { BASE_URL, API_KEY, TIMEOUT } = Api_Configuration;
 
-export class EarthApi {
+export class EpicApi {
 
     /**
      * Funcion para hacer una peticion a la api EPIC
