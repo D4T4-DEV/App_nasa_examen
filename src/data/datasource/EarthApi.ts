@@ -13,7 +13,7 @@ export class EarthApi {
      * @param formattedDate - Fecha en formato YYYY-MM-DD
      * @returns EarthNasaModel
      */
-    async fechtDataEarth(latitude: number, longitude: number, formattedDate: string): Promise<EarthNasaModel> {
+    async fetchDataEarth(latitude: number, longitude: number, formattedDate: string): Promise<EarthNasaModel> {
         const res = await axios.get(
             `${BASE_URL}/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=${formattedDate}&api_key=${API_KEY}`,
             {
