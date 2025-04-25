@@ -5,8 +5,9 @@ import { apodMapper } from "../mappers/ApodMapper";
 import { DataFormatter } from "@/core/utils/DataFormatter";
 import { LocalStorage } from "@/services/storage";
 import { KeysStorage_Configuration } from "@/core/keys_storage";
+import { DeletableRepository, SavableRepository } from "@/domain/repositories/GenericRepository";
 
-export class ApodRepositoryImpl implements ApodRepository {
+export class ApodRepositoryImpl implements ApodRepository, SavableRepository<Apod>, DeletableRepository {
 
     constructor(
         private readonly api: ApodApi,
@@ -30,8 +31,8 @@ export class ApodRepositoryImpl implements ApodRepository {
         return storedData ?? null;
     }
 
-    async saveData(apod: Apod): Promise<void> {
-        await LocalStorage.save(KeysStorage_Configuration.APOD_STORAGE_KEY, apod);
+    async saveData(data: Apod): Promise<void> {
+        await LocalStorage.save(KeysStorage_Configuration.APOD_STORAGE_KEY, data);
     }
 
     async deleteData(): Promise<void> {
