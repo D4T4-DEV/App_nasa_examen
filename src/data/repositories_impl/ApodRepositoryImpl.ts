@@ -14,9 +14,9 @@ export class ApodRepositoryImpl implements ApodRepository, SavableRepository<Apo
         private readonly dataFormatter: DataFormatter
     ) { }
 
-    async fetchDataApod(): Promise<Apod> {
+    async fetchDataApod(): Promise<Apod | null> {
         const rawDataApod = await this.api.fetchDataApod();
-        return apodMapper(rawDataApod);
+        return apodMapper(rawDataApod) ?? null;
     }
 
     async fetchDataOtherDateApod(date: Date): Promise<Apod | null> {
