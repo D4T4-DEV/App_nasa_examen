@@ -1,10 +1,10 @@
 import { Apod } from "../../entities/Apod";
 import { ApodRepository } from "../../repositories/ApodRepository";
 
-export class FechtDataApod {
+export class FetchDataApod {
     constructor(private readonly apodRepository: ApodRepository) { }
 
     async execute(): Promise<Apod> {
-        return this.apodRepository.fechtDataApod();
+        return this.apodRepository.fetchDataApod();
     }
 }
