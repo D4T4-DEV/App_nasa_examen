@@ -4,10 +4,8 @@ import { useTheme } from '@/presentation/hooks/useTheme';
 import { store } from '@/store/store';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
-
 
 
 function AppContent() {
@@ -21,7 +19,7 @@ function AppContent() {
     <PaperProvider theme={paperTheme}>
       <StatusBar style={isDarkContext ? 'dark' : 'light'} />
       <NavigationContainer linking={linking} theme={navigationTheme}>
-        <RootNavigator />
+        <RootNavigator />:
       </NavigationContainer>
     </PaperProvider>
   );
