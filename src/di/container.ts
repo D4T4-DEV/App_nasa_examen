@@ -6,19 +6,19 @@ import { NeoWsApi } from "@/data/datasource/NeoWsApi";
 import { RoverApi } from "@/data/datasource/RoverApi";
 import { ApodRepositoryImpl } from "@/data/repositories_impl/ApodRepositoryImpl";
 import { createApodUseCases } from "./factories/apodUseCasesFactory";
-import { ApodUseCases } from "@/core/interfaces/ApodUseCases";
+import { ApodUseCases } from "@/core/interfaces/usecasesinterfaces/ApodUseCases";
 import { EarthRepositoryImpl } from "@/data/repositories_impl/EarthRepositoryImpl";
-import { EarthUseCases } from "@/core/interfaces/EarthUseCases";
+import { EarthUseCases } from "@/core/interfaces/usecasesinterfaces/EarthUseCases";
 import { createEarthUseCases } from "./factories/earthUseCasesFactory";
 import { EpicRepositoryImpl } from "@/data/repositories_impl/EpicRepositoryImpl";
-import { EpicUseCases } from "@/core/interfaces/EpicUseCases";
+import { EpicUseCases } from "@/core/interfaces/usecasesinterfaces/EpicUseCases";
 import { createEpicUseCases } from "./factories/epicUseCasesFactory";
 import { NeoWsRepositoryImpl } from "@/data/repositories_impl/NeoWsRepositoryImpl";
-import { NeowsUseCases } from "@/core/interfaces/NeoWsUseCases";
+import { NeowsUseCases } from "@/core/interfaces/usecasesinterfaces/NeoWsUseCases";
 import { createNeowsUseCases } from "./factories/neowsUseCasesFactory";
 import { RoverRepositoryImpl } from "@/data/repositories_impl/RoverRepositoryImpl";
 import { createRoverUseCases } from "./factories/roverUseCasesFactory";
-import { RoverUseCases } from "@/core/interfaces/RoverUseCase";
+import { RoverUseCases } from "@/core/interfaces/usecasesinterfaces/RoverUseCase";
 
 const dateUtil = new DataFormatter();
 

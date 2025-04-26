@@ -1,4 +1,4 @@
-import { EpicUseCases } from "@/core/interfaces/EpicUseCases";
+import { EpicUseCases } from "@/core/interfaces/usecasesinterfaces/EpicUseCases";
 import { EpicRepositoryImpl } from "@/data/repositories_impl/EpicRepositoryImpl";
 import { Epic } from "@/domain/entities/Epic";
 import { DeletedData } from "@/domain/usecases/common/DeletedData";

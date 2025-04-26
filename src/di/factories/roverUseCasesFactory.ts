@@ -1,4 +1,4 @@
-import { RoverUseCases } from "@/core/interfaces/RoverUseCase";
+import { RoverUseCases } from "@/core/interfaces/usecasesinterfaces/RoverUseCase";
 import { RoverRepositoryImpl } from "@/data/repositories_impl/RoverRepositoryImpl";
 import { Rover } from "@/domain/entities/Rover";
 import { DeletedData } from "@/domain/usecases/common/DeletedData";

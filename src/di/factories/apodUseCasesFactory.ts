@@ -1,4 +1,4 @@
-import { ApodUseCases } from "@/core/interfaces/ApodUseCases";
+import { ApodUseCases } from "@/core/interfaces/usecasesinterfaces/ApodUseCases";
 import { ApodRepositoryImpl } from "@/data/repositories_impl/ApodRepositoryImpl";
 import { Apod } from "@/domain/entities/Apod";
 import { FetchDataApod } from "@/domain/usecases/apod/FetchDataApod";

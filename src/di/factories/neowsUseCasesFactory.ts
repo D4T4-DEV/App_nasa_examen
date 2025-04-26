@@ -1,4 +1,4 @@
-import { NeowsUseCases } from "@/core/interfaces/NeoWsUseCases";
+import { NeowsUseCases } from "@/core/interfaces/usecasesinterfaces/NeoWsUseCases";
 import { NeoWsRepositoryImpl } from "@/data/repositories_impl/NeoWsRepositoryImpl";
 import { NeoWs } from "@/domain/entities/NeoWs";
 import { DeletedData } from "@/domain/usecases/common/DeletedData";

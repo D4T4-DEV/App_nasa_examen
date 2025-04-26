@@ -1,4 +1,4 @@
-import { EarthUseCases } from "@/core/interfaces/EarthUseCases";
+import { EarthUseCases } from "@/core/interfaces/usecasesinterfaces/EarthUseCases";
 import { EarthRepositoryImpl } from "@/data/repositories_impl/EarthRepositoryImpl";
 import { Earth } from "@/domain/entities/Earth";
 import { DeletedData } from "@/domain/usecases/common/DeletedData";
