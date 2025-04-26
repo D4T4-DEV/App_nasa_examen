@@ -17,7 +17,7 @@ export const useTheme = () => {
 
     // handlers
     const setTheme = (isDarkMode: boolean) => {
-        setHour(a => isDarkMode ? 22 : 0);
+        setHour(_a => isDarkMode ? 22 : 0);
         dispatch(setDarkMode(isDarkMode))
     }
 
