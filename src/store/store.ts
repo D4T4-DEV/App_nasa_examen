@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import themeReducer from './slices/themeSlice';
 import apodReducer from './slices/apodSlice';
 
 export const store = configureStore({
     reducer: {
-        // theme: themeReducer,
+        theme: themeReducer,
         apod: apodReducer,
         // earth: earthReducer,
         // epic: epicReducer,
