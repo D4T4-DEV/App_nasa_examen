@@ -6,16 +6,16 @@ export const linking: LinkingOptions<RootStackParamList> = {
     config: {
         screens: {
             Home: '',
-            APOD: {
-                path: 'APOD',
+            Apod: {
+                path: 'Apod',
                 screens: {
                     ImgTheDay: 'image',
                     ExplImgTheDay: 'description',
                     SearchImgOtherDays: 'search',
                 },
             },
-            EPIC: {
-                path: 'EPIC',
+            Epic: {
+                path: 'Epic',
                 screens: {
                     ImgSunNew: 'sun-earth-image',
                     SearchSunImgEarth: 'sun-earth-search',
