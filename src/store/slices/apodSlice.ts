@@ -23,55 +23,44 @@ export const apodSlice = createSlice({
     reducers: {
         // Borrar los estados del slice
         clearApod(state) {
-            state.today.data = null;
-            state.today.error = null;
-            state.otherDate.error = null;
-            state.otherDate.data = null;
+            state.today = { ...initialState.today };
+            state.otherDate = { ...initialState.otherDate };
         },
     },
     extraReducers: (builder) => {
         builder
 
-            // Obtener la imagen del dia 
+            // Obtener la imagen del dia
             .addCase(fetchApod.pending, (state) => {
-                state.today.loading = true;
-                state.today.error = null;
+                state.today = { loading: true, error: null, data: null };
             })
             .addCase(fetchApod.fulfilled, (state, action) => {
-                state.today.loading = false;
-                state.today.data = action.payload;
+                state.today = { loading: false, error: null, data: action.payload };
             })
             .addCase(fetchApod.rejected, (state, action) => {
-                state.today.loading = false;
-                state.today.error = action.error.message ?? 'Error fetching today\'s APOD';
+                state.today = { loading: false, error: action.error.message ?? 'Error fetching today\'s APOD', data: null };
             })
 
             // Obtener la imagen en base a una fecha
             .addCase(fetchApodByDate.pending, (state) => {
-                state.otherDate.loading = true;
-                state.otherDate.error = null;
+                state.otherDate = { loading: true, error: null, data: null };
             })
             .addCase(fetchApodByDate.fulfilled, (state, action) => {
-                state.otherDate.loading = false;
-                state.otherDate.data = action.payload;
+                state.otherDate = { loading: false, error: null, data: action.payload };
             })
             .addCase(fetchApodByDate.rejected, (state, action) => {
-                state.otherDate.loading = false;
-                state.otherDate.error = action.error.message ?? 'Error fetching APOD by date';
+                state.otherDate = { loading: false, error: action.error.message ?? 'Error fetching APOD by date', data: null };
             })
 
             // Obtener los datos guardados
             .addCase(fetchApodOffline.pending, (state) => {
-                state.today.loading = true;
-                state.today.error = null;
+                state.today = { loading: true, error: null, data: null };
             })
             .addCase(fetchApodOffline.fulfilled, (state, action) => {
-                state.today.loading = false;
-                state.today.data = action.payload;
+                state.today = { loading: false, error: null, data: action.payload };
             })
             .addCase(fetchApodOffline.rejected, (state, action) => {
-                state.today.loading = false;
-                state.today.error = action.error.message ?? 'Error fetching APOD offline';
+                state.today = { loading: false, error: action.error.message ?? 'Error fetching APOD offline', data: null };
             })
 
             // Guardar los datos
@@ -80,7 +69,7 @@ export const apodSlice = createSlice({
 
             // Eliminar los datos
             .addCase(deleteApod.fulfilled, (state) => {
-                state.today.data = null;
+                state.today = { loading: false, error: null, data: null };
             });
     },
 });
