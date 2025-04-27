@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './slices/themeSlice';
 import apodReducer from './slices/apodSlice';
+import connectivityReducer from './slices/connectivitySlice';
 
 export const store = configureStore({
     reducer: {
+        connectivity: connectivityReducer,
         theme: themeReducer,
         apod: apodReducer,
         // earth: earthReducer,
