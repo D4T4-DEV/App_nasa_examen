@@ -10,6 +10,7 @@ export const useApodViewModel = () => {
     // Acceder al estado de apod
     const todayApod = useAppSelector(state => state.apod.today);
     const otherDateApod = useAppSelector(state => state.apod.otherDate);
+    const offlineApod = useAppSelector(state => state.apod.offlineMode);
 
     // Acciones encapsuladas
     const loadTodayApod = useCallback(() => {
@@ -24,7 +25,8 @@ export const useApodViewModel = () => {
         dispatch(fetchApodOffline());
     }, [dispatch]);
 
-    const saveCurrentApod = useCallback((apod: Apod) => {
+    const saveCurrentApod = useCallback((apod: Apod | null) => {
+        if (!apod) return;
         dispatch(saveApod(apod));
     }, [dispatch]);
 
@@ -39,6 +41,7 @@ export const useApodViewModel = () => {
     return {
         todayApod,
         otherDateApod,
+        offlineApod,
         loadTodayApod,
         loadApodByDate,
         loadApodOffline,

@@ -8,12 +8,14 @@ import { createRequestState } from '@/core/utils/createRequestState';
 interface ApodState {
     today: RequestState<Apod>;
     otherDate: RequestState<Apod>;
+    offlineMode: RequestState<Apod>;
 }
 
 // Estado inicial
 const initialState: ApodState = {
     today: createRequestState<Apod>(),
     otherDate: createRequestState<Apod>(),
+    offlineMode: createRequestState<Apod>(),
 };
 
 // Slice
@@ -54,13 +56,13 @@ export const apodSlice = createSlice({
 
             // Obtener los datos guardados
             .addCase(fetchApodOffline.pending, (state) => {
-                state.today = { loading: true, error: null, data: null };
+                state.offlineMode = { loading: true, error: null, data: null };
             })
             .addCase(fetchApodOffline.fulfilled, (state, action) => {
-                state.today = { loading: false, error: null, data: action.payload };
+                state.offlineMode = { loading: false, error: null, data: action.payload };
             })
             .addCase(fetchApodOffline.rejected, (state, action) => {
-                state.today = { loading: false, error: action.error.message ?? 'Error fetching APOD offline', data: null };
+                state.offlineMode = { loading: false, error: action.error.message ?? 'Error fetching APOD offline', data: null };
             })
 
             // Guardar los datos
@@ -69,7 +71,7 @@ export const apodSlice = createSlice({
 
             // Eliminar los datos
             .addCase(deleteApod.fulfilled, (state) => {
-                state.today = { loading: false, error: null, data: null };
+                state.offlineMode = { loading: false, error: null, data: null };
             });
     },
 });
