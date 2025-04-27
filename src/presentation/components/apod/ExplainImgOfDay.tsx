@@ -5,10 +5,13 @@ import { RequestState } from '@/core/interfaces/request/RequestState'
 import { Apod } from '@/domain/entities/Apod'
 import ClockLoader from '../loaders/ClockLoader'
 import ErrorSvg from '../svgs/ErrorSvg'
+import { AnimationProps } from '@/core/interfaces/others/animationProps'
 
-const ExplainImgOfDay: React.FC<RequestState<Apod>> = ({ loading, error, data }) => {
+type Props = RequestState<Apod> & AnimationProps;
 
-    if (loading) return <ClockLoader explain='Conectando a la NASA'/>;
+const ExplainImgOfDay: React.FC<Props> = ({ loading, error, data, isNecesary = false }) => {
+
+    if (loading) return isNecesary ? <ClockLoader explain='Conectando a la NASA' /> : null;
     if (error) return <ErrorSvg description="Ha ocurrido un error al obtener los datos" />;
     if (!data) return null;
 
