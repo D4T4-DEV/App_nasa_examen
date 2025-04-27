@@ -9,6 +9,7 @@ import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
+import { useConnectivity } from '@/presentation/hooks/useConnectivity';
 
 function AppContent() {
   const {
@@ -17,9 +18,14 @@ function AppContent() {
     navigationTheme,
   } = useTheme();
 
+  const {
+    isConnected,
+    connectionType
+  } = useConnectivity();
+
   return (
     <PaperProvider theme={paperTheme}>
-      <StatusBar style={isDarkContext ? 'dark' : 'light'} />
+      <StatusBar style={isDarkContext ? 'light' : 'dark'} />
       <NavigationContainer linking={linking} theme={navigationTheme}>
         <RootNavigator />
       </NavigationContainer>
