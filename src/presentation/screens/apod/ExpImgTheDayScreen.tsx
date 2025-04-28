@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import ExplainImgOfDay from '../components/apod/ExplainImgOfDay'
-import { useApodViewModel } from '../viewmodels/useApodViewModel';
-import { useConnectivity } from '../hooks/useConnectivity';
-import NoWifiSvg from '../components/svgs/NoWifiSvg';
+import ExplainImgOfDay from '../../components/apod/ExplainImgComponent'
+import { useApodViewModel } from '../../viewmodels/useApodViewModel';
+import { useConnectivity } from '../../hooks/useConnectivity';
+import NoWifiSvg from '../../components/svgs/NoWifiSvg';
 
 const ExpImgTheDayScreen = () => {
   const { todayApod } = useApodViewModel();

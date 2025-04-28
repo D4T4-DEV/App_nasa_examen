@@ -9,7 +9,7 @@ import { AnimationProps } from '@/core/interfaces/others/animationProps'
 
 type Props = RequestState<Apod> & AnimationProps;
 
-const ExplainImgOfDay: React.FC<Props> = ({ loading, error, data, isNecesary = false }) => {
+const ExplainImgComponent: React.FC<Props> = ({ loading, error, data, isNecesary = false }) => {
 
     if (loading) return isNecesary ? <ClockLoader explain='Conectando a la NASA' /> : null;
     if (error) return <ErrorSvg description="Ha ocurrido un error al obtener los datos" />;
@@ -23,7 +23,7 @@ const ExplainImgOfDay: React.FC<Props> = ({ loading, error, data, isNecesary = f
     )
 }
 
-export default ExplainImgOfDay
+export default ExplainImgComponent
 
 const styles = StyleSheet.create({
     title: {

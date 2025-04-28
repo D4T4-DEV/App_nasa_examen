@@ -4,9 +4,9 @@ import { RequestState } from '@/core/interfaces/request/RequestState';
 import { Apod } from '@/domain/entities/Apod';
 import ClockLoader from '../loaders/ClockLoader';
 import ErrorSvg from '../svgs/ErrorSvg';
-import { ImageOfDay } from './ImgOfTheDay';
-import ExplainImgOfDay from './ExplainImgOfDay';
+import ExplainImgOfDay from './ExplainImgComponent';
 import { Text } from 'react-native-paper';
+import { ImageRender } from '../ImageRender';
 
 
 interface FallBack {
@@ -15,7 +15,7 @@ interface FallBack {
 
 type Props = RequestState<Apod> & FallBack;
 
-const OtherDay: React.FC<Props> = ({ loading, error, data, textDescrip }) => {
+const OtherDayComponent: React.FC<Props> = ({ loading, error, data, textDescrip }) => {
 
     if (loading) return <ClockLoader explain='Conectando a la NASA' />;
     if (error) return <ErrorSvg description="Ha ocurrido un error al obtener los datos" />;
@@ -29,7 +29,7 @@ const OtherDay: React.FC<Props> = ({ loading, error, data, textDescrip }) => {
                 </View>
             }
             <View>
-                <ImageOfDay data={data} loading={loading} error={error} isNecesary={false} />
+                <ImageRender<Apod> data={data} loading={loading} error={error} isNecesary={false} />
             </View>
             <View>
                 <ExplainImgOfDay data={data} loading={loading} error={error} isNecesary={false} />
@@ -38,7 +38,7 @@ const OtherDay: React.FC<Props> = ({ loading, error, data, textDescrip }) => {
     )
 }
 
-export default OtherDay
+export default OtherDayComponent
 
 const styles = StyleSheet.create({
     container: {

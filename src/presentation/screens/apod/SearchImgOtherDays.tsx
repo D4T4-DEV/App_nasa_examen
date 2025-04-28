@@ -1,11 +1,11 @@
 import { StyleSheet, View } from 'react-native'
 import React, { useEffect } from 'react'
-import { DatePickerButton } from '../components/inputs/DatePickerBtn';
-import OtherDay from '../components/apod/OtherDay';
-import { useApodViewModel } from '../viewmodels/useApodViewModel';
-import SaveDialog from '../components/dialogs/SaveDialog';
-import { useConnectivity } from '../hooks/useConnectivity';
-import NoDataSvg from '../components/svgs/NoDataSvg';
+import { DatePickerButton } from '../../components/inputs/DatePickerBtn';
+import OtherDayComponent from '../../components/apod/OtherDayComponent';
+import { useApodViewModel } from '../../viewmodels/useApodViewModel';
+import SaveDialog from '../../components/dialogs/SaveDialog';
+import { useConnectivity } from '../../hooks/useConnectivity';
+import NoDataSvg from '../../components/svgs/NoDataSvg';
 
 const SearchImgOtherDays = () => {
   const [visible, setVisible] = React.useState(false);
@@ -47,7 +47,7 @@ const SearchImgOtherDays = () => {
           />
 
           <DatePickerButton onDateSelected={fetchDataOtherDayHandler} />
-          <OtherDay
+          <OtherDayComponent
             data={otherDateApod.data}
             loading={otherDateApod.loading}
             error={otherDateApod.error}
@@ -57,7 +57,7 @@ const SearchImgOtherDays = () => {
         (
           offlineApod.data ?
             // Cuando no esta conectado
-            (<OtherDay
+            (<OtherDayComponent
               data={offlineApod.data}
               loading={offlineApod.loading}
               error={offlineApod.error}
