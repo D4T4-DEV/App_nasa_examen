@@ -5,9 +5,11 @@ import InputDate from '../inputs/InputDate';
 import InputText from '../inputs/InputText';
 import { Button } from 'react-native-paper';
 import { validationSchemaFormEarth } from '@/core/validators';
+import { useEarthViewModel } from '@/presentation/viewmodels/useEarthViewModel';
+import { date } from 'yup';
 
 export const FormularioEarth = () => {
-
+    const { fetchDataEarth } = useEarthViewModel();
     return (
         <Formik
             initialValues={{
@@ -16,9 +18,15 @@ export const FormularioEarth = () => {
                 fecha: null,
             }}
             validationSchema={validationSchemaFormEarth}
-            onSubmit={(values) => {
-                console.log(JSON.stringify(values, null, 2));
-
+            onSubmit={async (values) => {
+                // console.log(JSON.stringify(values, null, 2));
+                if (values.fecha) {
+                    fetchDataEarth({
+                        latitude: parseFloat(values.latitud),
+                        longitude: parseFloat(values.longitud),
+                        date: values.fecha
+                    });
+                }
             }}
         >
             {({ handleSubmit, isValid, dirty }) => (
