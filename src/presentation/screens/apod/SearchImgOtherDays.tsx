@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 import React, { useEffect } from 'react'
-import { DatePickerButton } from '../../components/inputs/DatePickerBtn';
+import { DatePickeSingleDate } from '../../components/inputs/DatePickerSingleDate';
 import OtherDayComponent from '../../components/apod/OtherDayComponent';
 import { useApodViewModel } from '../../viewmodels/useApodViewModel';
 import SaveDialog from '../../components/dialogs/SaveDialog';
@@ -46,7 +46,7 @@ const SearchImgOtherDays = () => {
             }}
           />
 
-          <DatePickerButton onDateSelected={fetchDataOtherDayHandler} />
+          <DatePickeSingleDate onDateSelected={fetchDataOtherDayHandler} />
           <OtherDayComponent
             data={otherDateApod.data}
             loading={otherDateApod.loading}
