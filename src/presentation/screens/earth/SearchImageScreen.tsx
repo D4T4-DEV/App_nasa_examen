@@ -4,8 +4,7 @@ import { FormularioEarth } from '@/presentation/components/earth/formEarth'
 
 const SearchImageScreen = () => {
     return (
-        <View>
-            <Text>SearchImageScreen</Text>
+        <View style={{flex: 1,}}>
             <FormularioEarth />
         </View>
     )

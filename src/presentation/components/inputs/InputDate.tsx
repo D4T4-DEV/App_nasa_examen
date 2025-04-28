@@ -13,16 +13,15 @@ interface DateInputProps {
 
 const InputDate: React.FC<DateInputProps> = ({ name, style }) => {
 
-    const [field, meta, helpers] = useField(name);
+    const [field, _meta, helpers] = useField(name);
 
     const handleChange = (date: Date | undefined) => {
         helpers.setValue(date);
     };
 
     return (
-        <>
+        <View style={[styles.container, style]}>
             <DatePickerInput
-                style={style}
                 locale="es"
                 label="Fecha de búsqueda"
                 value={field.value}
@@ -31,15 +30,17 @@ const InputDate: React.FC<DateInputProps> = ({ name, style }) => {
                 validRange={{
                     endDate: new Date(),
                 }}
-                error={!!meta.error && meta.touched}
             />
-            {meta.touched && meta.error && (
-                <HelperText type="error" visible={true}>
-                    {meta.error}
-                </HelperText>
-            )}
-        </>
+        </View>
     )
 }
 
 export default InputDate
+
+const styles = StyleSheet.create({
+    container: {
+        alignContent: 'center',
+        alignSelf: 'center',
+        height: 60,
+    },
+});

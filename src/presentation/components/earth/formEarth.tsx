@@ -8,8 +8,6 @@ import { validationSchemaFormEarth } from '@/core/validators';
 
 export const FormularioEarth = () => {
 
-    // const
-
     return (
         <Formik
             initialValues={{
@@ -23,7 +21,7 @@ export const FormularioEarth = () => {
 
             }}
         >
-            {({ handleSubmit }) => (
+            {({ handleSubmit, isValid, dirty }) => (
                 <View style={styles.container}>
                     {/* Input para la latitud */}
                     <InputText
@@ -33,6 +31,7 @@ export const FormularioEarth = () => {
                         keyboardType='decimal-pad'
                         style={styles.inputs}
                     />
+
                     {/* Input para la longitud */}
                     <InputText
                         name="longitud"
@@ -43,13 +42,14 @@ export const FormularioEarth = () => {
                     />
 
                     {/* Input para la fecha */}
-                    <InputDate name='fecha'  style={styles.inputs}/>
+                    <InputDate name='fecha' style={styles.inptDate} />
 
                     {/* Boton para enviar el formulario */}
                     <Button
                         style={[styles.btn, styles.inputs]}
                         onPress={() => handleSubmit()}
                         mode="contained"
+                        disabled={!(isValid && dirty)}
                     >
                         Buscar
                     </Button>
@@ -62,12 +62,15 @@ export const FormularioEarth = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 16,
     },
     btn: {
         borderRadius: 10
     },
     inputs: {
-        margin: 5
+        margin: 10,
+        marginBottom: 12
+    },
+    inptDate: {
+        margin: 10,
     }
 });
