@@ -22,6 +22,7 @@ const InputDate: React.FC<DateInputProps> = ({ name, style }) => {
     return (
         <>
             <DatePickerInput
+                style={style}
                 locale="es"
                 label="Fecha de búsqueda"
                 value={field.value}

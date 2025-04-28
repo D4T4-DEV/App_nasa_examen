@@ -7,6 +7,9 @@ import { Button } from 'react-native-paper';
 import { validationSchemaFormEarth } from '@/core/validators';
 
 export const FormularioEarth = () => {
+
+    // const
+
     return (
         <Formik
             initialValues={{
@@ -26,22 +29,25 @@ export const FormularioEarth = () => {
                     <InputText
                         name="latitud"
                         label="Latitud"
-                        mode="outlined"
+                        mode="flat"
                         keyboardType='decimal-pad'
+                        style={styles.inputs}
                     />
                     {/* Input para la longitud */}
                     <InputText
                         name="longitud"
                         label="Longitud"
-                        mode="outlined"
+                        mode="flat"
                         keyboardType='decimal-pad'
+                        style={styles.inputs}
                     />
 
                     {/* Input para la fecha */}
-                    <InputDate name='fecha' />
+                    <InputDate name='fecha'  style={styles.inputs}/>
 
                     {/* Boton para enviar el formulario */}
                     <Button
+                        style={[styles.btn, styles.inputs]}
                         onPress={() => handleSubmit()}
                         mode="contained"
                     >
@@ -57,6 +63,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
-        justifyContent: 'center',
     },
+    btn: {
+        borderRadius: 10
+    },
+    inputs: {
+        margin: 5
+    }
 });
