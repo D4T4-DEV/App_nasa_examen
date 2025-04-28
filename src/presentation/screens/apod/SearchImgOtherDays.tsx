@@ -9,7 +9,7 @@ import NoDataSvg from '../../components/svgs/NoDataSvg';
 
 const SearchImgOtherDays = () => {
   const [visible, setVisible] = React.useState(false);
-  const { otherDateApod, offlineApod, loadApodByDate, loadApodOffline, saveCurrentApod } = useApodViewModel();
+  const { otherDateApod, offlineApod, loadApodByDate, loadApodOffline, saveCurrentApod, clearApodStateOtherDate } = useApodViewModel();
   const { isConnected } = useConnectivity();
 
   const showDialog = () => setVisible(true);
@@ -22,11 +22,17 @@ const SearchImgOtherDays = () => {
 
   const fetchDataOtherDayHandler = async (date: Date | undefined) => {
     if (!date) return;
+    clearApodStateOtherDate();
     loadApodByDate(date);
-    // Esperamos 1.5s para ejecutar el dialog para guardar datos
-    setTimeout(() => {
-      showDialog();
-    }, 1500);
+
+      // Esperamos 5s para ejecutar el dialog para guardar datos
+      setTimeout(() => {
+        // Verificamos que tenga datos
+        if(otherDateApod.data != null){
+          showDialog();
+        }
+      }, 5000);
+    
   }
 
   return (

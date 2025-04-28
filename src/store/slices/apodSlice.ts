@@ -24,10 +24,13 @@ export const apodSlice = createSlice({
     initialState,
     reducers: {
         // Borrar los estados del slice
-        clearApod(state) {
+        clearApodAll(state) {
             state.today = { ...initialState.today };
             state.otherDate = { ...initialState.otherDate };
             state.offlineMode = { ...initialState.offlineMode };
+        },
+        clearApodOtherDay(state) {
+            state.otherDate = { ...initialState.otherDate };
         },
     },
     extraReducers: (builder) => {
@@ -78,5 +81,5 @@ export const apodSlice = createSlice({
 });
 
 // Exporta acciones y reducer
-export const { clearApod } = apodSlice.actions;
+export const { clearApodAll, clearApodOtherDay } = apodSlice.actions;
 export default apodSlice.reducer;

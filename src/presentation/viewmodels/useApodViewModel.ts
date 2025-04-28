@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/useContextHook';
-import { clearApod } from '@/store/slices/apodSlice';
+import { clearApodAll, clearApodOtherDay } from '@/store/slices/apodSlice';
 import { deleteApod, fetchApod, fetchApodByDate, fetchApodOffline, saveApod } from '@/store/thunks/apodThunks';
 import { Apod } from '@/domain/entities/Apod';
 
@@ -38,7 +38,11 @@ export const useApodViewModel = () => {
     }, [dispatch]);
 
     const clearApodState = useCallback(() => {
-        dispatch(clearApod());
+        dispatch(clearApodAll());
+    }, [dispatch]);
+
+    const clearApodStateOtherDate = useCallback(() => {
+        dispatch(clearApodOtherDay());
     }, [dispatch]);
 
     return {
@@ -51,5 +55,6 @@ export const useApodViewModel = () => {
         saveCurrentApod,
         deleteCurrentApod,
         clearApodState,
+        clearApodStateOtherDate
     };
 };
