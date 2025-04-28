@@ -27,6 +27,7 @@ export const apodSlice = createSlice({
         clearApod(state) {
             state.today = { ...initialState.today };
             state.otherDate = { ...initialState.otherDate };
+            state.offlineMode = { ...initialState.offlineMode };
         },
     },
     extraReducers: (builder) => {
