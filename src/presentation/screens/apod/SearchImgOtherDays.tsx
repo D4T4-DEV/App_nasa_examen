@@ -25,14 +25,14 @@ const SearchImgOtherDays = () => {
     clearApodStateOtherDate();
     loadApodByDate(date);
 
-      // Esperamos 5s para ejecutar el dialog para guardar datos
-      setTimeout(() => {
-        // Verificamos que tenga datos
-        if(otherDateApod.data != null){
-          showDialog();
-        }
-      }, 5000);
-    
+    // Esperamos 5s para ejecutar el dialog para guardar datos
+    setTimeout(() => {
+      // Verificamos que tenga datos
+      if (otherDateApod.data != null) {
+        showDialog();
+      }
+    }, 5000);
+
   }
 
   return (
