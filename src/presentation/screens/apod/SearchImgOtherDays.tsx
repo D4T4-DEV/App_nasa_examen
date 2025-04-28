@@ -23,10 +23,10 @@ const SearchImgOtherDays = () => {
   const fetchDataOtherDayHandler = async (date: Date | undefined) => {
     if (!date) return;
     loadApodByDate(date);
-    // Esperamos 5s para ejecutar el dialog para guardar datos
+    // Esperamos 1.5s para ejecutar el dialog para guardar datos
     setTimeout(() => {
       showDialog();
-    }, 5000);
+    }, 1500);
   }
 
   return (
