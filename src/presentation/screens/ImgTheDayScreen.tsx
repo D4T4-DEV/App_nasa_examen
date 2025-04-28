@@ -17,6 +17,7 @@ const ImgTheDay = () => {
   return (
     <View style={styles.container}>
       {isConnected ? (
+        // cuando esta conectado
         <ImageOfDay
           loading={todayApod.loading}
           error={todayApod.error}
@@ -24,6 +25,7 @@ const ImgTheDay = () => {
           isNecesary={true}
         />
       ) :
+        // cuando esta conectado
         (<NoWifiSvg description='No tienes wifi, para usar esto...' />)
       }
     </View>

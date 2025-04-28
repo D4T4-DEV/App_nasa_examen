@@ -20,10 +20,13 @@ const SearchImgOtherDays = () => {
   }, [isConnected]);
 
 
-  const fetchDataOtherDayHandler = (date: Date | undefined) => {
+  const fetchDataOtherDayHandler = async (date: Date | undefined) => {
     if (!date) return;
-    showDialog();
     loadApodByDate(date);
+    // Esperamos 5s para ejecutar el dialog para guardar datos
+    setTimeout(() => {
+      showDialog();
+    }, 5000);
   }
 
   return (
@@ -61,6 +64,7 @@ const SearchImgOtherDays = () => {
               textDescrip='Estas viendo algo offline'
             />)
             :
+            // Cuando no esta conectado y no tiene nada guardado en asyncStorage
             (<NoDataSvg description='No tienes ningun dato guardado' />)
         )
       }

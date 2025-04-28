@@ -12,12 +12,12 @@ const ExpImgTheDayScreen = () => {
   return (
     <View style={{ flex: 1 }}>
       {isConnected ? (
+        // Cuando esta conectado
         <ExplainImgOfDay data={todayApod.data} loading={todayApod.loading} error={todayApod.error} isNecesary={true} />
       ) : (
+        // Cuando no esta conectado
         <NoWifiSvg description='No tienes wifi, para usar esto...' />
-      )
-      }
-
+      )}
     </View>
   )
 }

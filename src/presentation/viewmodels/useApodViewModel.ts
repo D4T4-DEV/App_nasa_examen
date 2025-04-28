@@ -26,7 +26,10 @@ export const useApodViewModel = () => {
     }, [dispatch]);
 
     const saveCurrentApod = useCallback((apod: Apod | null) => {
-        if (!apod) return;
+        if (!apod) {
+            console.log('No tuve datos, no ejecute la accion de guardado');
+            return;
+        }
         dispatch(saveApod(apod));
     }, [dispatch]);
 
