@@ -38,7 +38,6 @@ export const ImageRender = <T extends ImageEntity>({ loading, error, data, isNec
                     height: isWeb ? width * 0.35 : width * 1
                 }}
                 onError={() => setImageError(true)}
-                resizeMode="contain"
                 accessibilityLabel={data.title || "Imagen"}
             />
         </View>
