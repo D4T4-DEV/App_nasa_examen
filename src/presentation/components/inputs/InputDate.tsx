@@ -1,46 +1,44 @@
 import { StyleSheet, Text, View, ViewStyle } from 'react-native'
 import React from 'react'
 import { DatePickerInput, es, registerTranslation } from 'react-native-paper-dates'
+import { useField } from 'formik';
+import { HelperText } from 'react-native-paper';
 
 registerTranslation('es', es);
 
 interface DateInputProps {
-    onChange: (date: Date | undefined) => void;
-    initialDate?: Date;
+    name: string;
     style?: ViewStyle;
 }
 
-const InputDate: React.FC<DateInputProps> = ({ initialDate, style, onChange }) => {
+const InputDate: React.FC<DateInputProps> = ({ name, style }) => {
 
-    const [inputDate, setInputDate] = React.useState<Date | undefined>(initialDate)
+    const [field, meta, helpers] = useField(name);
 
     const handleChange = (date: Date | undefined) => {
-        setInputDate(date);
-        onChange(date);
+        helpers.setValue(date);
     };
 
     return (
-        <View style={[styles.container, style]}>
+        <>
             <DatePickerInput
                 locale="es"
-                label="Fecha de busqueda"
-                value={inputDate}
+                label="Fecha de búsqueda"
+                value={field.value}
                 onChange={handleChange}
                 inputMode="start"
                 validRange={{
-                    endDate: new Date(), // La fecha valida para escribir solo puede ser la de hoy del dispositivo
+                    endDate: new Date(),
                 }}
+                error={!!meta.error && meta.touched}
             />
-        </View>
+            {meta.touched && meta.error && (
+                <HelperText type="error" visible={true}>
+                    {meta.error}
+                </HelperText>
+            )}
+        </>
     )
 }
 
 export default InputDate
-
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        flex: 1,
-        alignItems: 'center'
-    }
-})
