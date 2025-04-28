@@ -8,7 +8,7 @@ interface DatePickerButtonProps {
     initialDate?: Date;
 }
 
-export function DatePickerButton({ onDateSelected, initialDate }: DatePickerButtonProps) {
+export function DatePickeSingleDate({ onDateSelected, initialDate }: DatePickerButtonProps) {
     const [open, setOpen] = useState(false);
     const [selectedDate, setSelectedDate] = useState<Date | undefined>(initialDate);
 
