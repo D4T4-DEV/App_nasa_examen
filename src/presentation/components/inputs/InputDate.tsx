@@ -3,6 +3,7 @@ import React from 'react'
 import { DatePickerInput, es, registerTranslation } from 'react-native-paper-dates'
 import { useField } from 'formik';
 import { HelperText } from 'react-native-paper';
+import { usePlataform } from '@/presentation/hooks/usePlataform';
 
 registerTranslation('es', es);
 
@@ -12,6 +13,7 @@ interface DateInputProps {
 }
 
 const InputDate: React.FC<DateInputProps> = ({ name, style }) => {
+    const { isWeb } = usePlataform();
 
     const [field, _meta, helpers] = useField(name);
 
@@ -20,7 +22,7 @@ const InputDate: React.FC<DateInputProps> = ({ name, style }) => {
     };
 
     return (
-        <View style={[styles.container, style]}>
+        <View style={[isWeb ? null : styles.container, style]}>
             <DatePickerInput
                 locale="es"
                 label="Fecha de búsqueda"
