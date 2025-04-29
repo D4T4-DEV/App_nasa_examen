@@ -11,7 +11,7 @@ interface NoDataSvgProps {
 }
 
 
-const NoWifiSvg: React.FC<NoDataSvgProps> = ({ width = 100, height = 100, color = "hsl(228, 97%, 42%)", description = 'Error inesperado' }) => {
+const NoDataSvg: React.FC<NoDataSvgProps> = ({ width = 100, height = 100, color = "hsl(228, 97%, 42%)", description = 'Error inesperado' }) => {
     return (
         <View style={styles.container}>
             <Svg fill={color} viewBox="0 -960 960 960" width={width} height={height}>
@@ -24,7 +24,7 @@ const NoWifiSvg: React.FC<NoDataSvgProps> = ({ width = 100, height = 100, color 
     )
 }
 
-export default NoWifiSvg
+export default NoDataSvg
 
 const styles = StyleSheet.create({
     container: {
