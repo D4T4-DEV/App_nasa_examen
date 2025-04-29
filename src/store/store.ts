@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './slices/themeSlice';
 import apodReducer from './slices/apodSlice';
 import earthReducer from './slices/earthSlice';
+import epicReducer from './slices/epicSlice';
 import connectivityReducer from './slices/connectivitySlice';
 
 export const store = configureStore({
@@ -10,7 +11,7 @@ export const store = configureStore({
         theme: themeReducer,
         apod: apodReducer,
         earth: earthReducer,
-        // epic: epicReducer,
+        epic: epicReducer,
         // neows: neowsReducer,
         // rover: roverReducer,
     },
