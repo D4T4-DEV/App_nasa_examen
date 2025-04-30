@@ -76,4 +76,6 @@ export const neowsSlice = createSlice({
     },
 });
 
+
+export const { clearNeows } = neowsSlice.actions;
 export default neowsSlice.reducer;
