@@ -40,7 +40,7 @@ export const neowsSlice = createSlice({
                 state.fetchData = { loading: false, error: null, data: action.payload };
             })
             .addCase(fetchNeows.rejected, (state, action) => {
-                state.fetchData = { loading: false, error: action.error.message ?? 'EError fetching info NeoWs', data: null };
+                state.fetchData = { loading: false, error: action.error.message ?? 'Error fetching info NeoWs', data: null };
             })
 
             // Obtener datos en base a una fecha pasada
@@ -51,7 +51,7 @@ export const neowsSlice = createSlice({
                 state.fetchDataForId = { loading: false, error: null, data: action.payload };
             })
             .addCase(fetchNeowsForId.rejected, (state, action) => {
-                state.fetchDataForId = { loading: false, error: action.error.message ?? 'EError fetching id selected info NeoWs', data: null };
+                state.fetchDataForId = { loading: false, error: action.error.message ?? 'Error fetching id selected info NeoWs', data: null };
             })
 
             // Obtener los datos guardados
