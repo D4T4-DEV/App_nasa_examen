@@ -3,6 +3,8 @@ import themeReducer from './slices/themeSlice';
 import apodReducer from './slices/apodSlice';
 import earthReducer from './slices/earthSlice';
 import epicReducer from './slices/epicSlice';
+import neowsReducer from './slices/neowsSlice';
+import roverReducer from './slices/roverSlice';
 import connectivityReducer from './slices/connectivitySlice';
 
 export const store = configureStore({
@@ -12,8 +14,8 @@ export const store = configureStore({
         apod: apodReducer,
         earth: earthReducer,
         epic: epicReducer,
-        // neows: neowsReducer,
-        // rover: roverReducer,
+        neows: neowsReducer,
+        rover: roverReducer,
     },
 });
 
