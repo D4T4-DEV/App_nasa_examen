@@ -2,7 +2,7 @@ import { RequestState } from "@/core/interfaces/request/RequestState";
 import { createRequestState } from "@/core/utils/createRequestState";
 import { NeoWs } from "@/domain/entities/NeoWs";
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchNeows, fetchNeowsForId, fetchNeowsOffline, saveNeows } from "../thunks/neowsThunk";
+import { deleteNeows, fetchNeows, fetchNeowsForId, fetchNeowsOffline, saveNeows } from "../thunks/neowsThunk";
 
 interface NeowsState {
     fetchData: RequestState<NeoWs[]>;
@@ -70,7 +70,7 @@ export const neowsSlice = createSlice({
             })
 
             // Eliminar los datos
-            .addCase(saveNeows.fulfilled, (state) => {
+            .addCase(deleteNeows.fulfilled, (state) => {
                 state.fetchDataOffline = { loading: false, error: null, data: null };
             });
     },
