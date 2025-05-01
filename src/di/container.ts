@@ -20,7 +20,7 @@ import { RoverRepositoryImpl } from "@/data/repositories_impl/RoverRepositoryImp
 import { createRoverUseCases } from "./factories/roverUseCasesFactory";
 import { RoverUseCases } from "@/core/interfaces/usecasesinterfaces/RoverUseCase";
 
-const dateUtil = new DataFormatter();
+export const dateUtil = new DataFormatter();
 
 
 // APIS 
