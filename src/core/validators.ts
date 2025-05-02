@@ -20,3 +20,8 @@ export const validationSchemaFormEarth = Yup.object().shape({
     fecha: Yup.date()
         .required('La fecha es requerida'),
 });
+
+
+export const validationSchemaFormEpic = Yup.object().shape({
+    fecha: Yup.date().required('La fecha es requerida'),
+});
