@@ -1,11 +1,11 @@
 import { StyleSheet, View, } from 'react-native'
 import React from 'react'
-import { FormularioEarth } from '@/presentation/components/earth/formEarth'
 import { ScrollView } from 'react-native-gesture-handler'
 import { useEarthViewModel } from '@/presentation/viewmodels/useEarthViewModel'
 import { ImageRenderEarth } from '@/presentation/components/earth/ImgRenderEarth'
 import { useConnectivity } from '@/presentation/hooks/useConnectivity'
 import NoWifiSvg from '@/presentation/components/svgs/NoWifiSvg'
+import { FormularioEarth } from '@/presentation/components/earth/FormEarth'
 
 const SearchImageScreen = () => {
     const { earthData } = useEarthViewModel();
