@@ -5,4 +5,5 @@ export type RootStackParamList = {
     Epic: undefined;
     Neows: undefined;
     Rover: undefined;
+    ImageModalScreen?: { imageUrl: string };
 }
