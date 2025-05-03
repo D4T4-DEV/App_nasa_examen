@@ -7,12 +7,16 @@ import { deleteRover, fetchRover, fetchRoverOffline, saveRover } from "../thunks
 interface RoverState {
     fetchData: RequestState<Rover[]>;
     fetchDataOffline: RequestState<Rover[]>;
+    page: number; // Pagina
+    noMorePages: boolean; //estado para saber si hay mas paginas o debe parar
 }
 
 // Estado incial
 const initialState: RoverState = {
     fetchData: createRequestState<Rover[]>(),
     fetchDataOffline: createRequestState<Rover[]>(),
+    page: 0,
+    noMorePages: false,
 }
 
 // Slice
@@ -24,17 +28,46 @@ export const roverSlice = createSlice({
         clearRover(state) {
             state.fetchData = { ...initialState.fetchData };
             state.fetchDataOffline = { ...initialState.fetchDataOffline };
+            state.page = 0;
+            state.noMorePages = false;
         },
+        // Establecer si ya no hay mas paginas
+        setNoMorePages(state, action) {
+            state.noMorePages = action.payload;
+        },
+        // Establecer la pagina actual
+        setPage(state, action) {
+            state.page = action.payload;
+        }
     },
     extraReducers: (builder) => {
 
         builder
             // Obtener los datos en base a los datos de la paginacion prederterminada de rover
             .addCase(fetchRover.pending, (state) => {
-                state.fetchData = { loading: true, error: null, data: null };
+                state.fetchData = { loading: true, error: null, data: state.fetchData.data ?? [] };
             })
             .addCase(fetchRover.fulfilled, (state, action) => {
-                state.fetchData = { loading: false, error: null, data: action.payload };
+
+                const newData = action.payload ?? [];
+                const existingData = state.fetchData.data ?? [];
+
+                // Filtrar los duplicados, manteniendo solo elementos que no existan en el estado
+                const mergedData = [...existingData, ...newData].filter((value, index, self) =>
+                    index === self.findIndex((t) => (
+                        t.id === value.id
+                    ))
+                );
+
+                state.fetchData = { loading: false, error: null, data: mergedData };
+
+                // Si no hay mas datos, marcar que no hay mas paginas
+                if (newData.length === 0) {
+                    state.noMorePages = true;
+                } else {
+                    // Incrementamos la pagina si hay mas datos
+                    state.page += 1;
+                }
             })
             .addCase(fetchRover.rejected, (state, action) => {
                 state.fetchData = { loading: false, error: action.error.message ?? 'Error fetching info Rover', data: null };
@@ -62,5 +95,5 @@ export const roverSlice = createSlice({
     },
 });
 
-export const { clearRover } = roverSlice.actions;
+export const { clearRover, setNoMorePages, setPage } = roverSlice.actions;
 export default roverSlice.reducer;
