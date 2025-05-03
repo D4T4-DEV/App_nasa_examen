@@ -1,7 +1,7 @@
 import React from 'react';
-import ExpImgTheDayScreen from '@/presentation/screens/ExpImgTheDayScreen';
-import ImgTheDay from '@/presentation/screens/ImgTheDayScreen';
-import SearchImgOtherDays from '@/presentation/screens/SearchImgOtherDays';
+import ExpImgTheDayScreen from '@/presentation/screens/apod/ExpImgTheDayScreen';
+import ImgTheDay from '@/presentation/screens/apod/ImgTheDayScreen';
+import SearchImgOtherDays from '@/presentation/screens/apod/SearchImgOtherDays';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -20,7 +20,7 @@ export default function NavigationBottomTabs() {
                     ),
                 }}
             >
-                {ImgTheDay}
+                {() => <ImgTheDay />}
             </Tab.Screen>
             {/* Explicación de la imagen del dia */}
             <Tab.Screen
@@ -32,7 +32,7 @@ export default function NavigationBottomTabs() {
                     ),
                 }}
             >
-                {ExpImgTheDayScreen}
+                {() => <ExpImgTheDayScreen />}
             </Tab.Screen>
             {/* Buscar otros días */}
             <Tab.Screen
@@ -44,7 +44,7 @@ export default function NavigationBottomTabs() {
                     ),
                 }}
             >
-                {SearchImgOtherDays}
+                {() => <SearchImgOtherDays />}
             </Tab.Screen>
         </Tab.Navigator>
     );

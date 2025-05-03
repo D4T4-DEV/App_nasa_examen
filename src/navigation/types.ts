@@ -1,5 +1,9 @@
 export type RootStackParamList = {
     Home: undefined;
-    APOD: undefined;
-    EPIC: undefined;
+    Apod: undefined;
+    Earth: undefined;
+    Epic: undefined;
+    Neows: undefined;
+    Rover: undefined;
+    ImageModalScreen?: { imageUrl: string };
 }

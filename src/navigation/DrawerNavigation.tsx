@@ -1,7 +1,7 @@
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, DrawerContentComponentProps } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
-import ImgSunNewScreen from '@/presentation/screens/ImgSunEarthNewScreen';
-import SearchImgSunEarthScreen from '@/presentation/screens/SearchImgSunEarthScreen';
+import ImgSunNewScreen from '@/presentation/screens/epic/ImgSunEarthNewScreen';
+import SearchImgSunEarthScreen from '@/presentation/screens/epic/SearchImgSunEarthScreen';
 import { Ionicons } from '@expo/vector-icons';
 
 export type DrawerStackParamList = {
@@ -11,6 +11,8 @@ export type DrawerStackParamList = {
 
 const Drawer = createDrawerNavigator<DrawerStackParamList>();
 
+// Funcion para renderizar los componentes de manera personalizada
+// dentro del drawer
 function DrawerContent(props: DrawerContentComponentProps) {
     const navigation = useNavigation();
 
@@ -34,11 +36,13 @@ function DrawerContent(props: DrawerContentComponentProps) {
 
 export default function DrawerNavigation() {
     return (
+
         <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
             <Drawer.Screen
                 name="ImgSunNew"
                 component={ImgSunNewScreen}
                 options={{
+                    title: 'Imagen solar más actual',
                     drawerIcon: ({ size, color }) =>
                     (
                         <Ionicons name="image" color={color} size={size} />
@@ -49,6 +53,7 @@ export default function DrawerNavigation() {
                 name="SearchSunImgEarth"
                 component={SearchImgSunEarthScreen}
                 options={{
+                    title: 'Buscar una imagen solar',
                     drawerIcon: ({ size, color }) =>
                     (
                         <Ionicons name='search' color={color} size={size} />
