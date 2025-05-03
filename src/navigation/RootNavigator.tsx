@@ -5,6 +5,7 @@ import TabsStack from "./stacks/TabsStack";
 import DrawerStack from "./stacks/DrawerStack";
 import SearchImageScreen from '@/presentation/screens/earth/SearchImageScreen';
 import NeowsScreen from '@/presentation/screens/neows/NeowsScreen';
+import RoverScreen from '@/presentation/screens/rover/RoverScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -16,6 +17,7 @@ export default function RootNavigator() {
             <Stack.Screen name="Earth" component={SearchImageScreen} options={{ title: 'Explorando Earth' }} />
             <Stack.Screen name="Epic" component={DrawerStack} options={{ headerShown: false }} />
             <Stack.Screen name="Neows" component={NeowsScreen} options={{ title: 'Explorando NeoWs' }} />
+            <Stack.Screen name="Rover" component={RoverScreen} options={{ title: 'Explorando las imagenes de Rover' }} />
         </Stack.Navigator>
     );
 }
