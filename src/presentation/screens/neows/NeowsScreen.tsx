@@ -14,9 +14,9 @@ const NeowsScreen = () => {
     // Cargar datos iniciales al montar el componente, solo se ejecuta una vez
     useEffect(() => {
         // Si no hay conexion no ejecuta la pedida de datos
-        if (isConnected) return;
+        if (!isConnected) return;
         fetchDataNeows();
-    }, []);
+    }, [isConnected]);
 
     // funcion que se ejecuta al llegar al final de la lista
     const handleEndReached = () => {
