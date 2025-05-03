@@ -5,11 +5,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { deleteNeows, fetchNeows, fetchNeowsForId, fetchNeowsOffline, saveNeows } from "../thunks/neowsThunk";
 
 interface NeowsState {
-    fetchData: RequestState<NeoWs[]>;  // Datos de NeoWs
+    fetchData: RequestState<NeoWs[]>; 
     fetchDataForId: RequestState<NeoWs>;
     fetchDataOffline: RequestState<NeoWs[]>;
-    page: number;  // Página actual
-    noMorePages: boolean;  // Indica si no hay más páginas
+    page: number; 
+    noMorePages: boolean;  
 }
 
 // Estado inicial
