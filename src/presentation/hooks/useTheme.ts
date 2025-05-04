@@ -9,7 +9,7 @@ export const useTheme = () => {
     const isDarkContext = useAppSelector((state) => state.theme.isDarkMode);
 
     // useStates
-    const [hour, setHour] = useState<number | undefined>(undefined);
+    const [hour, setHour] = useState<number | undefined>(8);
 
     // Definicion de temas 
     const paperTheme = isDarkContext ? darkTheme : lightTheme; // tema para react-native-paper
@@ -38,6 +38,8 @@ export const useTheme = () => {
         isDarkContext,
         paperTheme,
         navigationTheme,
+        darkTheme,
+        lightTheme,
         setTheme,
         setThemeBasedHour
     }
