@@ -6,13 +6,22 @@ import ErrorSvg from '../svgs/ErrorSvg'
 import RenderImageEpic from './RenderImageEpic'
 import RenderDataText from './RenderDataText'
 import { ScrollView } from 'react-native-gesture-handler'
+import { useTheme } from '@/presentation/hooks/useTheme'
 
 const FetchDataToday = () => {
     const { epicData, offlineEpic, fetchDataEpic } = useEpicViewModel();
+    const { setThemeBasedHour } = useTheme();
 
     useEffect(() => {
         fetchDataEpic();
     }, []);
+
+    useEffect(() => {
+        if (epicData.data) {
+            const hour = new Date(epicData.data.date).getHours();
+            setThemeBasedHour(hour);
+        }
+    }, [epicData.data, setThemeBasedHour]);
 
     if (epicData.loading) return <ClockLoader explain='Conectando a la NASA' />;
     if (epicData.error) return <ErrorSvg description="Ha ocurrido un error al obtener los datos" />;
@@ -21,7 +30,7 @@ const FetchDataToday = () => {
     return (
         <ScrollView style={styles.container}>
             <RenderImageEpic data={epicData.data} loading={epicData.loading} error={epicData.error} isNecesary={false} />
-            <RenderDataText  data={epicData.data} loading={epicData.loading} error={epicData.error} isNecesary={false}/>
+            <RenderDataText data={epicData.data} loading={epicData.loading} error={epicData.error} isNecesary={false} />
         </ScrollView>
     )
 }
@@ -29,7 +38,7 @@ const FetchDataToday = () => {
 export default FetchDataToday
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         alignContent: 'center',
     }
