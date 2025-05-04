@@ -9,7 +9,7 @@ const Tab = createBottomTabNavigator();
 
 export default function NavigationBottomTabs() {
     return (
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Navigator screenOptions={{ headerShown: false, animation: 'fade' }}>
             {/* Imagen del dia del APOD */}
             <Tab.Screen
                 name='ImgTheDay'
