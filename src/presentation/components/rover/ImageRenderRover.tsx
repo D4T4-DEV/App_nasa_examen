@@ -6,7 +6,7 @@ const fallbackImage: ImageSourcePropType = require("../../../../assets/no_image.
 
 type Props = Partial<Rover> & AnimationProps;
 
-export const ImageRenderRover: React.FC<Props> = ({ imageUrl, isNecesary = false }) => {
+export const ImageRenderRover: React.FC<Props> = React.memo(({ imageUrl, isNecesary = false }) => {
 
     const [imageError, setImageError] = useState(false);
 
@@ -27,7 +27,7 @@ export const ImageRenderRover: React.FC<Props> = ({ imageUrl, isNecesary = false
 
         </View>
     );
-}
+});
 
 const styles = StyleSheet.create({
     container: {
