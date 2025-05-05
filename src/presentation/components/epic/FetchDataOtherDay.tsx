@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { StyleSheet } from 'react-native'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
 import { useEpicViewModel } from '@/presentation/viewmodels/useEpicViewModel'
 import ClockLoader from '../loaders/ClockLoader'
 import ErrorSvg from '../svgs/ErrorSvg'
@@ -16,7 +16,9 @@ const FetchDataOtherDay = () => {
 
     return (
         <ScrollView style={styles.container}>
-            <RenderImageEpic data={epicDataOtherDate.data} loading={epicDataOtherDate.loading} error={epicDataOtherDate.error} isNecesary={false} />
+            <View>
+                <RenderImageEpic data={epicDataOtherDate.data} loading={epicDataOtherDate.loading} error={epicDataOtherDate.error} isNecesary={false} />
+            </View>
             <RenderDataText data={epicDataOtherDate.data} loading={epicDataOtherDate.loading} error={epicDataOtherDate.error} isNecesary={false} />
         </ScrollView>
     )

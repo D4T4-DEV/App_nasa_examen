@@ -29,7 +29,9 @@ const FetchDataToday = () => {
 
     return (
         <ScrollView style={styles.container}>
+            <View>
             <RenderImageEpic data={epicData.data} loading={epicData.loading} error={epicData.error} isNecesary={false} />
+            </View>
             <RenderDataText data={epicData.data} loading={epicData.loading} error={epicData.error} isNecesary={false} />
         </ScrollView>
     )
