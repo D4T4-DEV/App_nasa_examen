@@ -88,105 +88,91 @@ En este primer diagrama se expone como esta constituida el alma de la aplicació
 ### Un diagrama hecho por GitDiagram
 Este diagrama fue hecho por **GitDiagram**, en donde se adapto con ayuda de la página del playground de **Mermaid**, resultado en el siguiente diagrama:
 ```mermaid
+---
+config:
+  layout: dagre
+---
+
 flowchart TB
-    %% Dependency Injection
-    DI["DI Container"]:::di
-    click DI "https://github.com/d4t4-dev/app_nasa_examen/blob/main/src/di/container.ts"
+    %% Inyección de Dependencias
+    DI["🧪 Contenedor DI"]:::di
 
-    %% Presentation Layer
-    subgraph Presentation Layer
-        PScreens["Screens"]:::presentation
-        PComponents["Components"]:::presentation
-        PViewModels["ViewModels"]:::presentation
-        PHooks["Hooks"]:::presentation
-        Navigator["RootNavigator / Drawer / Tabs"]:::presentation
+    %% Capa de Presentación
+    subgraph "🎨 Capa de Presentación"
+        Pantallas["🖼️ Pantallas"]:::presentation
+        Componentes["🔧 Componentes"]:::presentation
+        ViewModels["🧠 ViewModels"]:::presentation
+        Ganchos["🪝 Hooks"]:::presentation
+        Navegacion["🧭 Navegación (Root/Drawer/Tabs)"]:::presentation
     end
-    click PScreens "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/presentation/screens"
-    click PComponents "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/presentation/components"
-    click PViewModels "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/presentation/viewmodels"
-    click PHooks "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/presentation/hooks"
-    click Navigator "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/navigation"
 
-    %% State Management
-    subgraph "State Management"
-        Store["Store Configuration"]:::redux
-        Slices["Redux Slices"]:::redux
-        Thunks["Redux Thunks"]:::redux
+    %% Gestión de Estado
+    subgraph "📦 Gestión de Estado"
+        Tienda["🏬 Configuración del Store"]:::redux
+        Slices["✂️ Slices de Redux"]:::redux
+        Thunks["⚙️ Thunks de Redux"]:::redux
     end
-    click Store "https://github.com/d4t4-dev/app_nasa_examen/blob/main/src/store/store.ts"
-    click Slices "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/store/slices"
-    click Thunks "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/store/thunks"
 
-    %% Domain Layer
-    subgraph Domain Layer
-        Entities["Entities"]:::domain
-        RepoInterfaces["Repository Interfaces"]:::domain
-        UseCases["Use Cases"]:::domain
+    %% Capa de Dominio
+    subgraph "🏗️ Capa de Dominio"
+        Entidades["🔤 Entidades"]:::domain
+        InterfacesRepo["🔌 Interfaces de Repositorio"]:::domain
+        CasosUso["🎯 Casos de Uso"]:::domain
     end
-    click Entities "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/domain/entities"
-    click RepoInterfaces "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/domain/repositories"
-    click UseCases "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/domain/usecases"
 
-    %% Data Layer
-    subgraph Data Layer
-        Datasources["API Datasources"]:::data
-        Mappers["Mappers"]:::data
-        Models["Models"]:::data
-        RepoImpl["Repository Implementations"]:::data
+    %% Capa de Datos
+    subgraph "💾 Capa de Datos"
+        FuentesDatos["🌐 Datasources (APIs)"]:::data
+        Mapeadores["🔁 Mapeadores"]:::data
+        Modelos["📄 Modelos"]:::data
+        ReposImpl["🏗️ Repositorios Implementados"]:::data
     end
-    click Datasources "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/data/datasource"
-    click Mappers "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/data/mappers"
-    click Models "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/data/models"
-    click RepoImpl "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/data/repositories_impl"
 
-    %% Core & Services
-    Core["Core Utilities & Interfaces"]:::core
-    click Core "https://github.com/d4t4-dev/app_nasa_examen/tree/main/src/core"
-    Services["AsyncStorage Fallback"]:::external
-    click Services "https://github.com/d4t4-dev/app_nasa_examen/blob/main/src/services/storage.ts"
+    %% Núcleo y Servicios Externos
+    Nucleo["🧰 Utilidades Núcleo"]:::core
+    Servicios["💾 Fallback con AsyncStorage"]:::external
+    APIsNASA["🌌 APIs REST de la NASA"]:::external
 
-    %% External Services
-    NASAApis["NASA REST APIs"]:::external
+    %% Conexiones
+    Pantallas -->|"enlaza / observa"| ViewModels
+    Componentes -->|"usa"| ViewModels
+    Ganchos -->|"provee a"| Pantallas
+    Navegacion -->|"navega hacia"| Pantallas
 
-    %% Connections
-    PScreens -->|"bind/observe"| PViewModels
-    PComponents -->|"use"| PViewModels
-    PHooks -->|"provide hooks to"| PScreens
-    Navigator -->|"navigates to"| PScreens
+    ViewModels -->|"despacha thunk"| Thunks
+    ViewModels -->|"llama caso de uso"| CasosUso
 
-    PViewModels -->|"dispatch thunk"| Thunks
-    PViewModels -->|"call use case"| UseCases
+    Thunks -->|"invoca caso de uso"| CasosUso
+    Tienda -->|"maneja estado de"| Slices
+    ViewModels -->|"selecciona estado"| Tienda
 
-    Thunks -->|"invoke use case"| UseCases
-    Store -->|"manages state for"| Slices
-    PViewModels -->|"select state"| Store
+    CasosUso -->|"depende de"| InterfacesRepo
 
-    UseCases -->|"depends on"| RepoInterfaces
+    InterfacesRepo -->|"implementado por"| ReposImpl
+    ReposImpl -->|"obtiene vía"| FuentesDatos
+    FuentesDatos -->|"HTTP"| APIsNASA
 
-    RepoInterfaces -->|"implemented by"| RepoImpl
-    RepoImpl -->|"fetch via"| Datasources
-    Datasources -->|"HTTP"| NASAApis
+    ReposImpl -.->|"fallback"| Servicios
+    Servicios -->|"usa"| Nucleo
 
-    RepoImpl -.->|"fallback"| Services
-    Services -->|"uses"| Core
+    DI -->|"inyecta"| CasosUso
+    DI -->|"inyecta"| ReposImpl
+    DI -->|"inyecta"| FuentesDatos
 
-    DI -->|"wires"| UseCases
-    DI -->|"wires"| RepoImpl
-    DI -->|"wires"| Datasources
+    %% Mapeo de Datos
+    Modelos -->|"mapeado a"| Mapeadores
+    Mapeadores -->|"mapea a dominio"| Entidades
+    Entidades -->|"usado por"| CasosUso
 
-    %% New: Data Mapping
-    Models -->|"mapped to"| Mappers
-    Mappers -->|"map to domain"| Entities
-    Entities -->|"used by"| UseCases
+    %% Estilos de clase con colores vivos
+    classDef presentation fill:#1E88E5,stroke:#0D47A1,color:#fff,stroke-width:2px
+    classDef redux fill:#FBC02D,stroke:#F57F17,color:#000,stroke-width:2px
+    classDef domain fill:#43A047,stroke:#1B5E20,color:#fff,stroke-width:2px
+    classDef data fill:#FB8C00,stroke:#E65100,color:#fff,stroke-width:2px
+    classDef external fill:#757575,stroke:#212121,color:#fff,stroke-width:2px
+    classDef core fill:#FDD835,stroke:#F9A825,color:#000,stroke-width:2px
+    classDef di fill:#8E24AA,stroke:#4A148C,color:#fff,stroke-width:2px
 
-    %% Class Definitions
-    classDef presentation fill:#BBDEFB,stroke:#333,stroke-width:1px
-    classDef redux fill:#FFE082,stroke:#333,stroke-width:1px
-    classDef domain fill:#C8E6C9,stroke:#333,stroke-width:1px
-    classDef data fill:#FFCC80,stroke:#333,stroke-width:1px
-    classDef external fill:#E0E0E0,stroke:#333,stroke-width:1px
-    classDef core fill:#FFF59D,stroke:#333,stroke-width:1px
-    classDef di fill:#D1C4E9,stroke:#333,stroke-width:1px
 ```
 
 Ahora bien, en un contexto a modo de texto se tiene:
