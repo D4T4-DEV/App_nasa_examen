@@ -37,40 +37,45 @@ function DrawerContent(props: DrawerContentComponentProps) {
 }
 
 export default function DrawerNavigation() {
-
+    
     const { isDarkContext, darkTheme, lightTheme, } = useTheme();
-
+    
     return (
-        <AnimatedThemeView
-            isDarkMode={isDarkContext}
-            lightColor={lightTheme.colors.background}
-            darkColor={darkTheme.colors.background}
-            style={{ flex: 1 }}
+        <Drawer.Navigator
+            drawerContent={(props) => <DrawerContent {...props} />}
+            screenOptions={{
+                headerBackground: () => (
+                    <AnimatedThemeView
+                        isDarkMode={isDarkContext}
+                        lightColor={lightTheme.colors.background}
+                        darkColor={darkTheme.colors.background}
+                        style={{ flex: 1 }}
+                    />
+                ),
+            }}
         >
-            <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-                <Drawer.Screen
-                    name="ImgSunNew"
-                    component={ImgSunNewScreen}
-                    options={{
-                        title: 'Imagen solar más actual',
-                        drawerIcon: ({ size, color }) =>
-                        (
-                            <Ionicons name="image" color={color} size={size} />
-                        ),
-                    }}
-                />
-                <Drawer.Screen
-                    name="SearchSunImgEarth"
-                    component={SearchImgSunEarthScreen}
-                    options={{
-                        title: 'Buscar una imagen solar',
-                        drawerIcon: ({ size, color }) =>
-                        (
-                            <Ionicons name='search' color={color} size={size} />
-                        ),
-                    }}
-                />
-            </Drawer.Navigator>
-        </AnimatedThemeView>
+            <Drawer.Screen
+                name="ImgSunNew"
+                component={ImgSunNewScreen}
+                options={{
+                    title: 'Imagen solar más actual',
+                    drawerIcon: ({ size, color }) =>
+                    (
+                        <Ionicons name="image" color={color} size={size} />
+                    ),
+                }}
+            />
+            <Drawer.Screen
+                name="SearchSunImgEarth"
+                component={SearchImgSunEarthScreen}
+                options={{
+                    title: 'Buscar una imagen solar',
+                    drawerIcon: ({ size, color }) =>
+                    (
+                        <Ionicons name='search' color={color} size={size} />
+                    ),
+                }}
+            />
+        </Drawer.Navigator>
     );
 }
