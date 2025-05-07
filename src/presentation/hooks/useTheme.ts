@@ -27,12 +27,14 @@ export const useTheme = () => {
         dispatch(setThemeBasedTime(hour));
     }
 
-    // useEffects
-    useEffect(() => {
-        // Seteamos un nuevo tema cuando cambie 
-        // el valor de la hora
-        setThemeBasedHour(hour);
-    }, [hour]);
+    // // useEffects
+    // useEffect(() => {
+    //     // Seteamos un nuevo tema cuando cambie 
+    //     // el valor de la hora
+    //     setThemeBasedHour(hour);
+    // }, [hour]);
+    // Comentamos esta linea esto era para cuando inicie la aplicación 
+    // setee el tema en base el horario del dispositivo
 
     return {
         isDarkContext,
