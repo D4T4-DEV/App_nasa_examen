@@ -5,6 +5,7 @@ import SearchImgSunEarthScreen from '@/presentation/screens/epic/SearchImgSunEar
 import { Ionicons } from '@expo/vector-icons';
 import { AnimatedThemeView } from '@/presentation/components/animated/AnimatedView';
 import { useTheme } from '@/presentation/hooks/useTheme';
+import { ThemeToggleButton } from '@/presentation/components/ToggleButton';
 
 export type DrawerStackParamList = {
     ImgSunNew: undefined;
@@ -37,9 +38,9 @@ function DrawerContent(props: DrawerContentComponentProps) {
 }
 
 export default function DrawerNavigation() {
-    
+
     const { isDarkContext, darkTheme, lightTheme, } = useTheme();
-    
+
     return (
         <Drawer.Navigator
             drawerContent={(props) => <DrawerContent {...props} />}
@@ -51,7 +52,7 @@ export default function DrawerNavigation() {
                         darkColor={darkTheme.colors.background}
                         style={{ flex: 1 }}
                     />
-                ),
+                )
             }}
         >
             <Drawer.Screen
@@ -63,6 +64,7 @@ export default function DrawerNavigation() {
                     (
                         <Ionicons name="image" color={color} size={size} />
                     ),
+                    headerRight: () => <ThemeToggleButton />,
                 }}
             />
             <Drawer.Screen
