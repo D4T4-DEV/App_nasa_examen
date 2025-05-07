@@ -9,7 +9,7 @@ import { AnimatedThemeView } from '@/presentation/components/animated/AnimatedVi
 const ImgSunNewScreen = () => {
   const { isConnected } = useConnectivity();
 
-  const { isDarkContext, darkTheme, lightTheme, } = useTheme();
+  const { isDarkContext } = useTheme();
 
   return (
     <AnimatedThemeView
