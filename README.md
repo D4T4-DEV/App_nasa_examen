@@ -191,3 +191,9 @@ Ahora bien, en un contexto a modo de texto se tiene:
 - Servicios: En este solo comprende el uso de AsyncStorage y LocalStorage (solo para web), en donde se expone las funciones para guardar, eliminar y borrar toda la memoria.
 
 - Store: En este se encuentra el contexto de la aplicación donde se hace uso de Redux Toolkit para poder generar las funcionalidades como: obtención de datos y cambio de temas.
+
+
+### La arquitectura y patrones de diseño
+Se realizo lo que se pidio en la rubrica "Arquitectura Clean" con "MVVM", en donde en cuanto a patrones de diseño se tiene:
+- Respository: Dato la implementación dada entre casos de uso y funciones elementales.
+- 
