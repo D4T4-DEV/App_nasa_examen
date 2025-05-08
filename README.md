@@ -194,6 +194,6 @@ Ahora bien, en un contexto a modo de texto se tiene:
 
 
 ### La arquitectura y patrones de diseño
-Se realizo lo que se pidio en la rubrica "Arquitectura Clean" con "MVVM", en donde en cuanto a patrones de diseño se tiene:
-- Respository: Dato la implementación dada entre casos de uso y funciones elementales.
-- 
+Se realizó lo que se pidió en la rúbrica "Arquitectura Clean" con "MVVM", en donde en cuanto a patrones de diseño se tiene:
+- Respository: Dato la implementación dada entre casos de uso y funciones elementales existentes en `domain` y `data`.
+- Fallback: Dado la implementación de poder guardar y disernir entre si es `web` o `nativo`, aunado si este tiene conexión u no.
