@@ -68,6 +68,7 @@ EPIC_STORAGE_KEY = 'epic_data'
 NEOWS_STORAGE_KEY = 'neows_data'
 ROVER_STORAGE_KEY = 'rover_data'
 NAVIGATION_PERSISTENCE_KEY = 'navigation_state_v0.1'
+THEME_PERSISTENCE_KEY = 'theme_state_v0.1'
 ```
 **IMPORTANTE:** La API_KEY para esta demostración de ejemplo es la demo, pero puedes generar la tuya en pa página donde se exponen las APIs y los ejemplos de la petición, siendo **https://api.nasa.gov/**
 
