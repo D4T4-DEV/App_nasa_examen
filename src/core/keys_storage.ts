@@ -2,7 +2,7 @@
 // puesta en el archivo app.config.ts
 import Constants from "expo-constants";
 
-// Sustraccion de los valores de la configuracion en el archivo app.config.js -> EXPO
+// Sustraccion de los valores de la configuracion en el archivo app.config.ts -> EXPO
 const {
     NAVIGATION_PERSISTENCE_KEY,
     THEME_PERSISTENCE_KEY,
