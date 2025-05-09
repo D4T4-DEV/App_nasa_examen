@@ -67,6 +67,7 @@ EARTH_STORAGE_KEY = 'earth_data'
 EPIC_STORAGE_KEY = 'epic_data'
 NEOWS_STORAGE_KEY = 'neows_data'
 ROVER_STORAGE_KEY = 'rover_data'
+NAVIGATION_PERSISTENCE_KEY = 'navigation_state_v0.1'
 ```
 **IMPORTANTE:** La API_KEY para esta demostración de ejemplo es la demo, pero puedes generar la tuya en pa página donde se exponen las APIs y los ejemplos de la petición, siendo **https://api.nasa.gov/**
 
@@ -197,3 +198,4 @@ Ahora bien, en un contexto a modo de texto se tiene:
 Se realizó lo que se pidió en la rúbrica "Arquitectura Clean" con "MVVM", en donde en cuanto a patrones de diseño se tiene:
 - Respository: Dato la implementación dada entre casos de uso y funciones elementales existentes en `domain` y `data`.
 - Fallback: Dado la implementación de poder guardar y disernir entre si es `web` o `nativo`, aunado si este tiene conexión u no.
+- Factory: Dada la necesidad de la inyección de dependencias para que este no se encuentre con demasiado codigo de implementación de repositorio y casos de uso, este se encuentra en `di/factories` y se encuentra usado en `di/container.ts`.
