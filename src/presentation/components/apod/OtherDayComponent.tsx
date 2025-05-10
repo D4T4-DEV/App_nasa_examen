@@ -6,7 +6,7 @@ import ClockLoader from '../loaders/ClockLoader';
 import ErrorSvg from '../svgs/ErrorSvg';
 import ExplainImgOfDay from './ExplainImgComponent';
 import { Text } from 'react-native-paper';
-import { ImageRender } from '../ImageRender';
+import { ImageRenderApod } from './RenderImage';
 
 
 interface FallBack {
@@ -29,7 +29,7 @@ const OtherDayComponent: React.FC<Props> = ({ loading, error, data, textDescrip 
                 </View>
             }
             <View>
-                <ImageRender<Apod> data={data} loading={loading} error={error} isNecesary={false} />
+                <ImageRenderApod data={data} loading={loading} error={error} isNecesary={false} />
             </View>
             <View>
                 <ExplainImgOfDay data={data} loading={loading} error={error} isNecesary={false} />
