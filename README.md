@@ -194,9 +194,17 @@ Ahora bien, en un contexto a modo de texto se tiene:
 
 - Store: En este se encuentra el contexto de la aplicación donde se hace uso de Redux Toolkit para poder generar las funcionalidades como: obtención de datos y cambio de temas.
 
-
 ### La arquitectura y patrones de diseño
 Se realizó lo que se pidió en la rúbrica "Arquitectura Clean" con "MVVM", en donde en cuanto a patrones de diseño se tiene:
 - Respository: Dato la implementación dada entre casos de uso y funciones elementales existentes en `domain` y `data`.
 - Fallback: Dado la implementación de poder guardar y disernir entre si es `web` o `nativo`, aunado si este tiene conexión u no.
 - Factory: Dada la necesidad de la inyección de dependencias para que este no se encuentre con demasiado codigo de implementación de repositorio y casos de uso, este se encuentra en `di/factories` y se encuentra usado en `di/container.ts`.
+
+### ¿Cómo se ve la aplicación?
+**Pantalla de inicio**
+  <img src="assets/diagramasGithub/MainScreen.png" alt="MainScreen"/>
+
+**Una pequña demostración**
+  <img src="assets/diagramasGithub/ezgif-1b9135aea56cde.gif" alt="Demostracion app"/>
+
+**Expecial agradecimientos a:** `http://ezgif.com/` y `http://iloveimg.com/es` por la conversión y compresión del recurso anterior.
