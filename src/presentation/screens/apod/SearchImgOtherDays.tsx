@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DatePickeSingleDate } from '../../components/inputs/DatePickerSingleDate';
 import OtherDayComponent from '../../components/apod/OtherDayComponent';
 import { useApodViewModel } from '../../viewmodels/useApodViewModel';
@@ -8,31 +8,39 @@ import { useConnectivity } from '../../hooks/useConnectivity';
 import NoDataSvg from '../../components/svgs/NoDataSvg';
 
 const SearchImgOtherDays = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
+  const [isNeccesaryOpenModal, setIsNeccesaryOpenModal] = useState(false);
   const { otherDateApod, offlineApod, loadApodByDate, loadApodOffline, saveCurrentApod, clearApodStateOtherDate } = useApodViewModel();
   const { isConnected } = useConnectivity();
 
-  const showDialog = () => setVisible(true);
-  const hideDialog = () => setVisible(false);
+  const showDialog = () => {
+    setVisible(true);
+  };
+  const hideDialog = () => {
+    setVisible(false);
+    setIsNeccesaryOpenModal(false);
+  };
 
+  // Checa si tiene conexión
   useEffect(() => {
     if (!isConnected) loadApodOffline();
   }, [isConnected]);
 
+  // Checa si tiene datos cada vez que cambia otherDateApod.data
+  useEffect(() => {
+    if (otherDateApod.data && isNeccesaryOpenModal) {
+      // Mostrar modal de guardado
+      setTimeout(() => {
+        showDialog();
+      }, 1000);
+    }
+  }, [otherDateApod.data]);
 
   const fetchDataOtherDayHandler = async (date: Date | undefined) => {
     if (!date) return;
     clearApodStateOtherDate();
     loadApodByDate(date);
-
-    // Esperamos 2s para ejecutar el dialog para guardar datos
-    setTimeout(() => {
-      // Verificamos que tenga datos
-      if (otherDateApod.data != null) {
-        showDialog();
-      }
-    }, 2000);
-
+    setIsNeccesaryOpenModal(true); // mostrar modal de guardado, requerido
   }
 
   return (
