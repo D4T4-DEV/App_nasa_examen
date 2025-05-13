@@ -37,7 +37,7 @@ function AppContent() {
     loadStateNavigation();
   }, []);
 
-  if (!isReady) return <ClockLoader explain='Estamos volviendo donde lo dejaste'/>;
+  if (!isReady) return <ClockLoader explain='Cargando...'/>;
 
   return (
     <PaperProvider theme={paperTheme}>
