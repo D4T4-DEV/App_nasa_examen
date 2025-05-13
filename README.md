@@ -202,9 +202,11 @@ Se realizó lo que se pidió en la rúbrica "Arquitectura Clean" con "MVVM", en 
 
 ### ¿Cómo se ve la aplicación?
 **Pantalla de inicio**
-  <img src="assets/diagramasGithub/MainScreen.png" alt="MainScreen"/>
+
+<img src="assets/diagramasGithub/MainScreen.png" alt="MainScreen"/>
 
 **Una pequña demostración**
-  <img src="assets/diagramasGithub/ezgif-1b9135aea56cde.gif" alt="Demostracion app"/>
+
+<img src="assets/diagramasGithub/ezgif-1b9135aea56cde.gif" alt="Demostracion app">
 
 **Expecial agradecimientos a:** `http://ezgif.com/` y `http://iloveimg.com/es` por la conversión y compresión del recurso anterior.
