@@ -209,4 +209,7 @@ Se realizó lo que se pidió en la rúbrica "Arquitectura Clean" con "MVVM", en 
 
 <img src="assets/diagramasGithub/ezgif-1b9135aea56cde.gif" alt="Demostracion app">
 
+**IMPORTANTE esto esta sujeto a cambios**
+
+
 **Expecial agradecimientos a:** `http://ezgif.com/` y `http://iloveimg.com/es` por la conversión y compresión del recurso anterior.
