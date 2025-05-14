@@ -1,8 +1,9 @@
 import axios from "axios";
-import { Api_Configuration } from "@/core/api";
+import { Api_Configuration, Api_Endpoints } from "@/core/api";
 import { EarthNasaModel } from "../models/EarthNasa";
 
 const { BASE_URL, API_KEY, TIMEOUT } = Api_Configuration;
+const { Earth } = Api_Endpoints;
 
 export class EarthApi {
 
@@ -15,7 +16,7 @@ export class EarthApi {
      */
     async fetchDataEarth(latitude: number, longitude: number, formattedDate: string): Promise<EarthNasaModel> {
         const res = await axios.get(
-            `${BASE_URL}/planetary/earth/assets?lon=${longitude}&lat=${latitude}&date=${formattedDate}&api_key=${API_KEY}`,
+            `${BASE_URL}${Earth}?lon=${longitude}&lat=${latitude}&date=${formattedDate}&api_key=${API_KEY}`,
             {
                 timeout: TIMEOUT
             }

@@ -1,8 +1,9 @@
 import axios from "axios";
-import { Api_Configuration } from "@/core/api";
+import { Api_Configuration, Api_Endpoints } from "@/core/api";
 import { ApodNasaModel } from "../models/ApodNasa";
 
 const { BASE_URL, API_KEY, TIMEOUT } = Api_Configuration;
+const { Apod } = Api_Endpoints;
 
 export class ApodApi {
     /**
@@ -11,7 +12,7 @@ export class ApodApi {
      */
     async fetchDataApod(): Promise<ApodNasaModel> {
         const res = await axios.get(
-            `${BASE_URL}/planetary/apod?api_key=${API_KEY}`,
+            `${BASE_URL}${Apod}?api_key=${API_KEY}`,
             {
                 timeout: TIMEOUT
             }
@@ -27,7 +28,7 @@ export class ApodApi {
      */
     async fetchDataOtherDateApod(formattedDate: string): Promise<ApodNasaModel> {
         const res = await axios.get(
-            `${BASE_URL}/planetary/apod?date=${formattedDate}&api_key=${API_KEY}`,
+            `${BASE_URL}${Apod}?date=${formattedDate}&api_key=${API_KEY}`,
             {
                 timeout: TIMEOUT
             }
