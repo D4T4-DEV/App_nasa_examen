@@ -2,25 +2,44 @@ import { LinkingOptions } from '@react-navigation/native';
 import { RootStackParamList } from './types';
 
 export const linking: LinkingOptions<RootStackParamList> = {
-    prefixes: ['myapp://', 'https://myapp.com'],
+    prefixes: ['myapp://', 'https://myapp.com', 'http://localhost:8081'],
     config: {
         screens: {
             Home: '',
+
             Apod: {
-                path: 'Apod',
+                path: 'apod',
                 screens: {
-                    ImgTheDay: 'image',
-                    ExplImgTheDay: 'description',
-                    SearchImgOtherDays: 'search',
+                    TabsStack: {
+                        path: 'tabs',
+                        screens: {
+                            ImgTheDay: 'image',
+                            ExplImgTheDay: 'description',
+                            SearchImgOtherDays: 'search',
+                        }
+                    }
                 },
             },
+
+            Earth: 'earth',
+
             Epic: {
-                path: 'Epic',
+                path: 'epic',
                 screens: {
-                    ImgSunNew: 'sun-earth-image',
-                    SearchSunImgEarth: 'sun-earth-search',
+                    DrawerStack: {
+                        path: 'drawer',
+                        screens: {
+                            ImgSunNew: 'sun-earth-image',
+                            SearchSunImgEarth: 'sun-earth-search',
+                        }
+                    }
                 },
             },
+
+            Neows: 'neows',
+            Rover: 'rover',
+            ImageModalScreen: 'modal-image',
         },
     },
 };
+

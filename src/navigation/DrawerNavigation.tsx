@@ -3,6 +3,9 @@ import { useNavigation } from '@react-navigation/native';
 import ImgSunNewScreen from '@/presentation/screens/epic/ImgSunEarthNewScreen';
 import SearchImgSunEarthScreen from '@/presentation/screens/epic/SearchImgSunEarthScreen';
 import { Ionicons } from '@expo/vector-icons';
+import { AnimatedThemeView } from '@/presentation/components/animated/AnimatedView';
+import { useTheme } from '@/presentation/hooks/useTheme';
+import { ThemeToggleButton } from '@/presentation/components/ToggleButton';
 
 export type DrawerStackParamList = {
     ImgSunNew: undefined;
@@ -35,9 +38,23 @@ function DrawerContent(props: DrawerContentComponentProps) {
 }
 
 export default function DrawerNavigation() {
-    return (
 
-        <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+    const { isDarkContext, darkTheme, lightTheme, } = useTheme();
+
+    return (
+        <Drawer.Navigator
+            drawerContent={(props) => <DrawerContent {...props} />}
+            screenOptions={{
+                headerBackground: () => (
+                    <AnimatedThemeView
+                        isDarkMode={isDarkContext}
+                        lightColor={lightTheme.colors.background}
+                        darkColor={darkTheme.colors.background}
+                        style={{ flex: 1 }}
+                    />
+                )
+            }}
+        >
             <Drawer.Screen
                 name="ImgSunNew"
                 component={ImgSunNewScreen}
@@ -47,6 +64,7 @@ export default function DrawerNavigation() {
                     (
                         <Ionicons name="image" color={color} size={size} />
                     ),
+                    headerRight: () => <ThemeToggleButton />,
                 }}
             />
             <Drawer.Screen

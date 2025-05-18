@@ -18,12 +18,14 @@ const RenderDataText: React.FC<Props> = ({ loading, error, data, isNecesary }) =
     if (!data) return null;
 
     const fechaFoto = dateUtil.formatteDateToUSA(new Date(data.date));
+    const horaFoto = new Date(data.date).getHours();
 
     return (
         <View style={styles.container}>
             <View>
                 <Text variant="labelLarge" style={styles.titles}>Datos de la imagen:</Text>
                 <Text>Fecha: {fechaFoto}</Text>
+                <Text>Hora que fue tomada la foto: {horaFoto}</Text>
             </View>
             <View>
                 <Text style={styles.titles}>Cordenadas tomadas en relación a la Tierra:</Text>

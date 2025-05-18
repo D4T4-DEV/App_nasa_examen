@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, View } from 'react-native'
 import ExplainImgOfDay from '../../components/apod/ExplainImgComponent'
 import { useApodViewModel } from '../../viewmodels/useApodViewModel';
@@ -6,8 +6,13 @@ import { useConnectivity } from '../../hooks/useConnectivity';
 import NoWifiSvg from '../../components/svgs/NoWifiSvg';
 
 const ExpImgTheDayScreen = () => {
-  const { todayApod } = useApodViewModel();
+  const { todayApod, loadTodayApod } = useApodViewModel();
   const { isConnected } = useConnectivity();
+
+  useEffect(() => {
+    if (!isConnected) return;
+    loadTodayApod();
+  }, [isConnected]);
 
   return (
     <View style={{ flex: 1 }}>

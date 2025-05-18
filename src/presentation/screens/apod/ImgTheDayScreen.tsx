@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import { useApodViewModel } from '@/presentation/viewmodels/useApodViewModel';
 import { useConnectivity } from '../../hooks/useConnectivity';
 import NoWifiSvg from '../../components/svgs/NoWifiSvg';
-import { ImageRender } from '@/presentation/components/ImageRender';
-import { Apod } from '@/domain/entities/Apod';
+import { ImageRenderApod } from '@/presentation/components/apod/RenderImage';
 
 const ImgTheDay = () => {
   const { todayApod, loadTodayApod } = useApodViewModel();
@@ -19,7 +18,7 @@ const ImgTheDay = () => {
     <View style={styles.container}>
       {isConnected ? (
         // cuando esta conectado
-        <ImageRender<Apod>
+        <ImageRenderApod
           loading={todayApod.loading}
           error={todayApod.error}
           data={todayApod.data}

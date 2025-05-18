@@ -39,7 +39,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       EARTH_STORAGE_KEY: process.env.EARTH_STORAGE_KEY,
       EPIC_STORAGE_KEY: process.env.EPIC_STORAGE_KEY,
       NEOWS_STORAGE_KEY: process.env.NEOWS_STORAGE_KEY,
-      ROVER_STORAGE_KEY: process.env.ROVER_STORAGE_KEY
+      ROVER_STORAGE_KEY: process.env.ROVER_STORAGE_KEY,
+      NAVIGATION_PERSISTENCE_KEY: process.env.NAVIGATION_PERSISTENCE_KEY,
+      THEME_PERSISTENCE_KEY: process.env.THEME_PERSISTENCE_KEY,
     }
   }
 });

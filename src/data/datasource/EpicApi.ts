@@ -1,8 +1,9 @@
 import axios from "axios";
-import { Api_Configuration } from "@/core/api";
+import { Api_Configuration, Api_Endpoints } from "@/core/api";
 import { EpicNasaModel } from "../models/EpicNasa";
 
 const { BASE_URL, API_KEY, TIMEOUT } = Api_Configuration;
+const { Epic } = Api_Endpoints;
 
 export class EpicApi {
 
@@ -12,7 +13,7 @@ export class EpicApi {
      */
     async fetchDataEpic(): Promise<EpicNasaModel[]> {
         const res = await axios.get(
-            `${BASE_URL}/EPIC/api/natural?api_key=${API_KEY}`,
+            `${BASE_URL}${Epic}?api_key=${API_KEY}`,
             {
                 timeout: TIMEOUT
             }
@@ -27,7 +28,7 @@ export class EpicApi {
      */
     async fetchDataOtherDateEpic(formattedDate: string): Promise<EpicNasaModel[]> {
         const res = await axios.get(
-            `${BASE_URL}/EPIC/api/natural/date/${formattedDate}?api_key=${API_KEY}`,
+            `${BASE_URL}${Epic}/date/${formattedDate}?api_key=${API_KEY}`,
             {
                 timeout: TIMEOUT
             }

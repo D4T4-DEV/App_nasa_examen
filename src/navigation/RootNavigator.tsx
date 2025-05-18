@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootNavigator() {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ animation: 'simple_push' }}>
             <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'NASA APP' }} />
             <Stack.Screen name="Apod" component={TabsStack} options={{ title: 'Explorando APOD' }} />
             <Stack.Screen name="Earth" component={SearchImageScreen} options={{ title: 'Explorando Earth' }} />
@@ -24,6 +24,7 @@ export default function RootNavigator() {
                 component={ImageModalScreen}
                 options={{
                     presentation: 'modal',
+                    animation: 'slide_from_bottom',
                     headerShown: false,
                 }}
             />

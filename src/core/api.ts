@@ -15,6 +15,16 @@ if (!BASE_API_URL_NASA || !API_KEY_NASA || !TIMEOUT_API) {
     );
 }
 
+// Endpoints de la api
+export const Api_Endpoints = {
+    Apod: '/planetary/apod',
+    Earth: '/planetary/earth/assets',
+    Epic: '/EPIC/api/natural',
+    Neows: '/neo/rest/v1/neo',
+    Rover: '/mars-photos/api/v1/rovers/curiosity/photos',
+}
+
+
 export const Api_Configuration = {
     BASE_URL: BASE_API_URL_NASA,
     API_KEY: API_KEY_NASA,

@@ -27,7 +27,7 @@ const SearchImageScreen = () => {
                 </ScrollView>
             ) : (
                 <View style={styles.containerImg}>
-                    <NoWifiSvg description="No tienes internet para usar este recurso" />
+                    <NoWifiSvg description="No tienes wifi, para usar esto..." />
                 </View>
             )}
         </View>
